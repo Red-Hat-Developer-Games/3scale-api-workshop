@@ -2,128 +2,72 @@
     "kind": "List",
     "apiVersion": "v1",
     "metadata": {
-        "name": "jboss-fuse-image-streams",
+        "name": "jenkins-image-streams",
         "annotations": {
-            "description": "ImageStream definitions for Red Hat Fuse."
+            "description": "ImageStream definitions for Jenkins."
         }
     },
     "items": [
         {
-            "kind": "ImageStream",
             "apiVersion": "v1",
+            "kind": "ImageStream",
             "metadata": {
-                "name": "jboss-fuse70-java-openshift",
                 "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 7.0 Java",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
+                    "openshift.io/display-name": "Jenkins",
+                },
+                "creationTimestamp": "2021-02-23T15:49:25Z",
+                "generation": 2,
+                "name": "jenkins",
+                "namespace": "openshift",
+                "resourceVersion": "1368",
+                "selfLink": "/apis/image.openshift.io/v1/namespaces/openshift/imagestreams/jenkins",
+                "uid": "b439286a-75ee-11eb-900c-06166fc240d8"
             },
             "spec": {
                 "tags": [
                     {
-                        "name": "1.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.0 Java S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.0 Java",
-                            "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,xpaas,hidden",
-                            "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
-                            "version": "1.0"
+                            "description": "Provides a Jenkins 1.X server on RHEL 7. For more information about using this container image, including OpenShift considerations, see https://github.com/openshift/jenkins/blob/master/README.md.",
+                            "iconClass": "icon-jenkins",
+                            "openshift.io/display-name": "Jenkins 1.X",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "hidden,jenkins",
+                            "version": "1.x"
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/fuse7/fuse-java-openshift:1.0"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "jboss-fuse70-karaf-openshift",
-                "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 7.0 Karaf",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
-            },
-            "spec": {
-                "tags": [
+                            "name": "registry.redhat.io/openshift3/jenkins-1-rhel7:latest"
+                        },
+                        "name": "1"
+                    },
                     {
-                        "name": "1.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.0 Karaf S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.0 Karaf",
-                            "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,karaf,xpaas,hidden",
-                            "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
-                            "version": "1.0"
+                            "description": "Provides a Jenkins 2.X server on RHEL 7. For more information about using this container image, including OpenShift considerations, see https://github.com/openshift/jenkins/blob/master/README.md.",
+                            "iconClass": "icon-jenkins",
+                            "openshift.io/display-name": "Jenkins 2.X",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "jenkins",
+                            "version": "2.x"
                         },
                         "from": {
                             "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/fuse7/fuse-karaf-openshift:1.0"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "jboss-fuse70-eap-openshift",
-                "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 7.0 EAP",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
-            },
-            "spec": {
-                "tags": [
+                            "name": "registry.redhat.io/openshift3/jenkins-2-rhel7:v3.11"
+                        },
+                        "name": "2"
+                    },
                     {
-                        "name": "1.0",
                         "annotations": {
-                            "description": "Red Hat Fuse 7.0 EAP S2I images.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.0 EAP",
-                            "iconClass": "icon-rh-integration",
-                            "tags": "builder,jboss-fuse,java,eap,xpaas,hidden",
-                            "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
-                            "version": "1.0"
+                            "description": "Provides a Jenkins server on RHEL 7. For more information about using this container image, including OpenShift considerations, see https://github.com/openshift/jenkins/blob/master/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Jenkins available on OpenShift, including major versions updates.",
+                            "iconClass": "icon-jenkins",
+                            "openshift.io/display-name": "Jenkins (Latest)",
+                            "openshift.io/provider-display-name": "Red Hat, Inc.",
+                            "tags": "jenkins"
                         },
                         "from": {
-                            "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/fuse7/fuse-eap-openshift:1.0"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "ImageStream",
-            "apiVersion": "v1",
-            "metadata": {
-                "name": "jboss-fuse70-console",
-                "annotations": {
-                    "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
-                    "openshift.io/provider-display-name": "Red Hat, Inc."
-                }
-            },
-            "spec": {
-                "tags": [
-                    {
-                        "name": "1.0",
-                        "annotations": {
-                            "description": "Red Hat Fuse 7.0 Console image.",
-                            "openshift.io/display-name": "Red Hat Fuse 7.0 Console",
-                            "iconClass": "icon-rh-integration",
-                            "tags": "jboss-fuse,hawtio,java,xpaas,hidden",
-                            "supports":"jboss-fuse:7.0.0,java:8,xpaas:1.2",
-                            "version": "1.0"
+                            "kind": "ImageStreamTag",
+                            "name": "2"
                         },
-                        "from": {
-                            "kind": "DockerImage",
-                            "name": "registry.access.redhat.com/fuse7/fuse-console:1.0"
-                        }
+                        "name": "latest"
                     }
                 ]
             }
