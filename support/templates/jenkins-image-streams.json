@@ -13,7 +13,7 @@
             "kind": "ImageStream",
             "metadata": {
                 "annotations": {
-                    "openshift.io/display-name": "Jenkins",
+                    "openshift.io/display-name": "Jenkins"
                 },
                 "creationTimestamp": "2021-02-23T15:49:25Z",
                 "generation": 2,
