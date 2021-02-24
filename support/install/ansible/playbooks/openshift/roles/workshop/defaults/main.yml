@@ -5,6 +5,7 @@ backend_project: international
 apicurio_project: apicurio
 gogs_project: gogs
 microcks_project: microcks
+jenkins_project: jenkins
 sso_version: ose-v1.4.9
 ocp_domain: 3901.openshiftworkshop.com
 ocp_apps_domain: apps.3901.openshiftworkshop.com

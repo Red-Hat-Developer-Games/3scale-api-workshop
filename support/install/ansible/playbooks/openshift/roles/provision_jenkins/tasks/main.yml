@@ -1,0 +1,13 @@
+---
+- name: Make sure we go back to default project
+  shell: "oc project default"
+
+- name: Check if image streams are available
+  shell: "oc describe is jenkins -n openshift"
+  register: imagestream_exists
+  when: configure_only == 'false'
+  ignore_errors: true
+
+- name: Create image streams for RH SSO
+  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-image-stream.json -n openshift"
+  when: configure_only == 'false' and imagestream_exists.failed
