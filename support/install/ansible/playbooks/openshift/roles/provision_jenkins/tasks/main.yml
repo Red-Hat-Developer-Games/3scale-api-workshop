@@ -9,5 +9,52 @@
   ignore_errors: true
 
 - name: Create image streams for RH SSO
-  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-image-stream.json -n openshift"
+  shell: "oc create -f https://raw.githubusercontent.com/misanche/3scale-api-workshop/master/support/templates/jenkins-image-streams.json -n openshift"
   when: configure_only == 'false' and imagestream_exists.failed
+
+# - name: Create or update the Jenkins template
+#   shell: "oc apply -f https://raw.githubusercontent.com/misanche/3scale-api-workshop/master/support/templates/jenkins-template.json -n openshift"
+#   when: configure_only == 'false'
+
+- name: Create custom jenkins image
+  shell: "oc new-build jenkins:2~https://github.com/rhappdev/custom-jenkins-image.git --name=custom-jenkins -e GIT_SSL_NO_VERIFY=true -e OVERRIDE_PV_CONFIG_WITH_IMAGE_CONFIG=true -e OVERRIDE_PV_PLUGINS_WITH_IMAGE_PLUGINS=true -n {{ jenkins_project }}"
+
+- name: wait for build to come up
+  shell: "oc get build custom-jenkins-1 -n {{ jenkins_project }} -o json"
+  register: jenkinscustom_exists
+  until: jenkinscustom_exists.stdout|from_json|json_query('status.phase') == "Complete"
+  retries: 10
+  delay: 20
+
+- name: Create the jenkins app from template
+  shell: "oc new-app jenkins-persistent -p JENKINS_IMAGE_STREAM_TAG=custom-jenkins:latest -p NAMESPACE={{ jenkins_project }} -p MEMORY_LIMIT=4Gi -p VOLUME_CAPACITY=10Gi -n {{ jenkins_project }}"
+  when: configure_only == 'false'
+
+- name: Give rights to jenkins service account
+  shell: "oc policy add-role-to-user edit system:serviceaccount:{{ jenkins_project }}:jenkins -n {{ item }}"
+  with_sequence: start=1 end={{ usersno }} format=user%d
+  when: configure_only == 'false'
+
+- name: clone the repository
+  git:
+    repo: 'https://github.com/rhappdev/custom-jenkins-image.git'
+    dest: /tmp/3scale-workshop/custom-jenkins-image
+    version: master
+  when: configure_only == 'false'
+- name: Create the sync plugin config
+  template:
+    src: templates/sync.plugin.j2
+    dest: /tmp/3scale-workshop/custom-jenkins-image/configuration/io.fabric8.jenkins.openshiftsync.GlobalPluginConfiguration.xml
+  when: configure_only == 'false'
+
+- name: Create the new build based on dir
+  shell: "oc start-build custom-jenkins --from-dir=/tmp/3scale-workshop/custom-jenkins-image -n {{ jenkins_project }}"
+  when: configure_only == 'false'
+
+- name: wait for build to come up
+  shell: "oc get build custom-jenkins-2 -n {{ jenkins_project }} -o json"
+  register: jenkinscustom2_exists
+  until: jenkinscustom2_exists.stdout|from_json|json_query('status.phase') == "Complete"
+  retries: 10
+  delay: 20
+  when: configure_only == 'false'

@@ -1,0 +1,20 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<io.fabric8.jenkins.openshiftsync.GlobalPluginConfiguration plugin="openshift-sync@1.0.45">
+  <enabled>true</enabled>
+  <foldersEnabled>true</foldersEnabled>
+  <server></server>
+  <namespaces>
+    <string>jenkins</string>
+    {% for i in range(usersno) %}
+        <string>user{{ i }}</string>
+    {% endfor %}
+  </namespaces>
+  <jobNamePattern></jobNamePattern>
+  <skipOrganizationPrefix></skipOrganizationPrefix>
+  <skipBranchSuffix></skipBranchSuffix>
+  <buildListInterval>300</buildListInterval>
+  <buildConfigListInterval>300</buildConfigListInterval>
+  <secretListInterval>300</secretListInterval>
+  <configMapListInterval>300</configMapListInterval>
+  <imageStreamListInterval>300</imageStreamListInterval>
+</io.fabric8.jenkins.openshiftsync.GlobalPluginConfiguration>
