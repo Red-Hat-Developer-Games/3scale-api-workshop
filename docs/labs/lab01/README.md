@@ -87,15 +87,16 @@ openshift
 
 1. Create a brand new API by completing the following information:
 
-    * Type: **Open API 3.0.2**
     * Name: **Locations-UserX** (Replace *X* with your user number)
     * Description: **Locations API**
+    * Type: **Open API 3.0.2**
+    * Template: **Blank API**
 
     ![design-create-api](images/design-04.png "Create API")
 
-1. Click on **Create API**.
+2. Click on **Create API**.
 
-1. Finally, click on **Edit API** to start editing your newly created API.
+3. Finally, click on **Edit API** to start editing your newly created API.
 
     ![design-edit-api](images/design-05.png "Edit API")
 
@@ -105,14 +106,15 @@ You are now in the main screen to edit your APIs. Different from other API edito
 
 Let's start crafting your API.
 
-1. Time to prepare our data definitions for the API. Click on the **Add a definition** link under the *Definitions*.
+1. Time to prepare our data types for the API. Click on the **Add a data type** link under the *Data Types*.
 
-    ![design-add-definition](images/design-15.png "Add Definition")
+    ![design-add-data-type](images/design-15.png "Add a data type")
 
 1. Fill in the *Name* with the **location** value. Expand the *FROM EXAMPLE (optional)* to paste the following example:
 
     * Name: **location**
-    * FROM EXAMPLE:
+    * Description: *Location data type*
+    * Enter JSON Example:
 
         ```bash
         {
@@ -126,12 +128,13 @@ Let's start crafting your API.
             "status": "1"
         }
         ```
+    * Choose to create a REST Resource with the Data Type
 
-    ![design-definition-name](images/design-16.png "Definition Name")
+    ![design-data-type-name](images/design-16.png "Data Type Name")
 
-1. Apicurio automatically trys to detect the data types from the provided example.
+2. Apicurio automatically trys to detect the data types from the provided example.
 
-    ![design-definition-types](images/design-17.png "Definition Data Types")
+    ![design-data-types](images/design-17.png "Definition Data Types")
 
     *Time to start creating some paths*.
 
@@ -151,9 +154,9 @@ Let's start crafting your API.
 
     *By default, Apicurio suggest a series of available operations for your new path*.
 
-1. Click **Create Operation** under the *GET* operation.
+1. Click **Add Operation** under the *GET* operation.
 
-    ![design-create-operation](images/design-08.png "Create Operation")
+    ![design-add-operation](images/design-08.png "Add Operation")
 
 1. Click on the green **GET** operation button to edit the operation information.
 
@@ -169,33 +172,43 @@ Let's start crafting your API.
 
     ![design-add-response-code](images/design-11.png "Add Response Code")
 
-1. Scroll down to the bottom of the page. Move your mouse over the **200 OK** response to enable the options. Click on the **Edit** button to edit the response details.
+2. Scroll down to the bottom of the page. Move your mouse over the **200 OK** response to enable the options.
 
     ![design-edit-response](images/design-12.png "Edit Response")
 
-1. Scroll down again to the bottom of the page. Click on the **Add Media Type** button to define and configure the response media type.
+3. Scroll down again to the bottom of the page. Click on the **Add Media Type** button to define and configure the response media type.
 
     ![design-add-media](images/design-13.png "Add Media Type")
 
-1. Leave **application/json** as the value of *Media Type*. Click the **Add** button.
+4. Choose from the select with value **application/json** to set the value of *Media Type*. Click the **Add** button.
 
     ![design-media-json](images/design-14.png "Media Type JSON")
 
-1. Click on the *Choose Type* combo box to display the different types. First select **Array**.
+5. Add a description to the response, click **pencil** icon:
+
+   ![design-click-description](images/design-25.png "Edit Description")
+
+6. Set the Description field and click **tick** blue button.
+
+    * Name: **200 status code response**
+  
+    ![design-set-description](images/design-26.png "Set Description")
+
+7. Click on the *Choose Type* combo box to display the different types. First select **Array**.
 
     ![design-location-type](images/design-18.png "Location Type")
 
-1. This will enable a second combo box. In this new box, select **location** from the displayed options.
+8. This will enable a second combo box. In this new box, select **location** from the displayed options.
 
     ![design-location-type](images/design-18a.png "Location Type")
 
-1. Click the **Add an example** link to add a Response Example. 
+9.  Click the **Add an example** link to add a Response Example.
 
     *This will be useful to mock your API in the next lab*.
 
     ![design-add-example](images/design-19.png "Add Example")
 
-1. Fill in the information for your response example:
+10. Fill in the information for your response example:
 
     * Name: **all**
     * Example:
@@ -237,11 +250,7 @@ Let's start crafting your API.
 
     ![design-response-example](images/design-20.png "Response Example")
 
-1. Click the **Add** button.
-
-1. Click the **Done** button to finish the response editing.
-
-    ![design-response-done](images/design-21.png "Finish Response")
+11. Click the **Add** button.
 
 ### Step 4: Download the API definition
 
