@@ -1,19 +1,19 @@
-# Lab 1
+# Lab 201
 
-## API Design
+## Jenkins CICD
 
-### Create an OpenAPI Specification using Apicurio Studio
+### Install the 3scale toolbox locally
 
-* Duration: 15 mins
-* Audience: Developers, Architects, DevOps
+* Duration: x mins
+* Audience: API Owner, Product Manager, Developers, Architects, Devops
 
 ## Overview
 
-As APIs become more widespread in the enterprise, consist design and usage is critically important to improve re-usability. The more re-usable APIs are, the less friction there is for other internal or external teams to make progress. Having design standards and tools baked into the API development and maintenance process is a very powerful way to enable this consistency.
+This section covers how to install the 3scale toolbox cli.
 
-### Why Red Hat?
+### What is 3scale toolbox?
 
-RedHat is one of the founding members of the Linux Foundation Open API Initiative which is produces the leading standard for REST API specifications. Red Hat consistently uses this format throughout it's tooling, starting with the Apicurio Studio API Design editor.
+The 3scale toolbox is a Ruby client that lets you manage 3scale services from the command line.
 
 ### Skipping The Lab
 

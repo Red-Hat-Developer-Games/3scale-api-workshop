@@ -22,7 +22,7 @@ We know sometime we don't have enough time to go over step by step on the labs. 
 If you are planning to follow to the next lab, there is an already running OpenID Connect secured API proxy for the Location API Service in this endpoint:
 
 ```bash
-https://location-service-sso.amp.apps.GUID.openshiftworkshop.com
+https://location-service-sso.amp.apps.GUID.open.redhat.com
 ```
 
 ### Environment
@@ -34,13 +34,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshiftworkshop.com
+https://master.GUID.open.redhat.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshiftworkshop.com
+https://master.1234.open.redhat.com
 ```
 
 **Credentials:**
@@ -64,7 +64,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/admin/userX/console/
+    http://sso-rh-sso.apps.GUID.open.redhat.com/auth/admin/userX/console/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -124,7 +124,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.openshiftworkshop.com/
+    https://userX-admin.apps.bilbao-8ecb.open.redhat.com/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -170,7 +170,7 @@ openshift
 1. In the **OpenID Connect Issuer** field, type in your previously noted client credentials with the URL of your Red Hat Single Sing On instance:
 
     ```bash
-    http://3scale-admin:CLIENT_SECRET@sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/realms/userX
+    http://3scale-admin:CLIENT_SECRET@sso-rh-sso.apps.GUID.open.redhat.com/auth/realms/userX
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value, your user number and the CLIENT_SECRET you get in the [Step 1](#step-1-get-red-hat-single-sign-on-service-account-credentials)*.

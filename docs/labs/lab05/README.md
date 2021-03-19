@@ -26,13 +26,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshiftworkshop.com
+https://master.GUID.open.redhat.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshiftworkshop.com
+https://master.1234.open.redhat.com
 ```
 
 **Credentials:**
@@ -56,7 +56,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.openshiftworkshop.com/
+    https://userX-admin.apps.GUID.open.redhat.com/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -148,7 +148,7 @@ openshift
 1. Open a new *Incognito/Private* browser window to test the Developer Portal login. Navigate to:
 
     ```bash
-    https://userX.apps.GUID.openshiftworkshop.com/
+    https://userX.apps.GUID.open.redhat.com/
     ```
 
 1. Type your portal code to finish the login.

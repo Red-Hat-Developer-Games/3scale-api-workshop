@@ -31,8 +31,8 @@ gogs_project | Namespace where Gogs will be installed. | gogs | Yes, if *gogs* 
 microcks_project | Namespace where Microcks will be installed | microcks | Yes, if *microcks* is enabled
 backend_project | Namespace where Backend will be installed | international | Yes, if *backend* is enabled
 sso_version | The version tag used for getting the RH SSO templates. | ose-v1.4.9 | No
-ocp_domain | Root domain of the OpenShift cluster. For example: `GUID.openshiftworkshop.com` | | Yes
-ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.GUID.openshiftworkshop.com`  | | Yes
+ocp_domain | Root domain of the OpenShift cluster. For example: `GUID.open.redhat.com` | | Yes
+ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.GUID.open.redhat.com`  | | Yes
 usersno | Number of user tenants that will be created. | | Yes
 threescale | Enable Red Hat 3scale API Management. | true | No
 apicurio | Enable Apicurio Studio. | true | No
@@ -52,8 +52,8 @@ An [example inventory](../support/ansible/inventory/workshop.inventory.example) 
 localhost ansible_connection=local
 
 [workshop:vars]
-ocp_domain=GUID.openshiftworkshop.com
-ocp_apps_domain=apps.GUID.openshiftworkshop.com
+ocp_domain=GUID.open.redhat.com
+ocp_apps_domain=apps.GUID.open.redhat.com
 usersno=20
 threescale=true
 apicurio=true
@@ -74,7 +74,7 @@ The recommended way to install the workshop is running the ansible playbook from
 1. Login to the bastion machine following the email instructions.
 
     ```bash
-    ssh -i /path/to/ocp_workshop.pem ec2-user@bastion.GUID.openshiftworkshop.com
+    ssh -i /path/to/ocp_workshop.pem ec2-user@bastion.GUID.open.redhat.com
     ```
 
     *Remember to update the GUID with your cluster environment variable and the path to the downloaded PEM file.*
@@ -108,7 +108,7 @@ The recommended way to install the workshop is running the ansible playbook from
 1. Login to the OpenShift cluster.
 
     ```bash
-    oc login -u opentlc-mgr https://master.GUID.openshiftworkshop.com --insecure-skip-tls-verify
+    oc login -u opentlc-mgr https://master.GUID.open.redhat.com --insecure-skip-tls-verify
     ```
 
     *If you install on OpenShift, it is required that you have cluster-admin access in order to set up the required roles for creating namespaces and managing resources in those namespaces*.

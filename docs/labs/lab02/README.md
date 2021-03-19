@@ -20,25 +20,25 @@ Red Hat OpenShift is one of the leading container management platforms available
 If you are planning to follow to the next lab, there is an already deployed and running Location API Service in this endpoint:
 
 ```bash
-http://location-service-international.apps.GUID.openshiftworkshop.com
+http://location-service-international.apps.GUID.open.redhat.com
 ```
 
 ### Environment
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
-https://master.GUID.openshiftworkshop.com
+https://master.GUID.open.redhat.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshiftworkshop.com
+https://master.1234.open.redhat.com
 ```
 
 **Credentials:**
@@ -62,7 +62,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://master.GUID.openshiftworkshop.com/console
+    https://master.GUID.open.redhat.com/console
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -156,7 +156,7 @@ We now have a working Location API Service implementation listening for requests
 1. Enter the following URL: 
 
     ```bash
-    http://location-service-userX.apps.GUID.openshiftworkshop.com/locations/1
+    http://location-service-userX.apps.GUID.open.redhat.com/locations/1
     ```
 
     Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
