@@ -94,7 +94,7 @@ openshift
 1. Fill in the configuration information with your API implementation github repo details:
 
     * Application Name: **location-service**
-    * Git Repository URL: **https://github.com/jbossdemocentral/3scale-api-workshop**
+    * Git Repository URL: **https://github.com/misanche/3scale-api-workshop**
     * Git Repository context: **/projects/location-service**
     * Git Reference: **master**
 
@@ -170,6 +170,11 @@ We now have a working Location API Service implementation listening for requests
     ![14-curl-response](images/deploy-14.png "cURL Response")
 
 *Congratulations!* You successfully deployed your teams Location API Service implementations into OpenShift using Red Hat Fuse 7.0 Spring Boot template.
+
+1. You can use your own terminal to make a curl request:
+   ```bash
+    curl http://location-service-userX.apps.GUID.open.redhat.com/locations/1
+    ```
 
 ## Steps Beyond
 
