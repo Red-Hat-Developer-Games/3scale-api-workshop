@@ -28,10 +28,15 @@ The workshop is intended to be delivered in person, but will provide enough guid
 
 A rough agenda for the workshop looks like this:
 
+#### Day 1
 * Red Hat 3scale API Management Overview: 20 mins
 * Workshop Overview: 10 mins
 * Labs: 3hrs
 
+#### Day 2
+* Red Hat 3scale API Management with Jenkins : 20 mins
+* Workshop Overview: 10 mins
+* Labs: 3hrs
 ### Slides
 
 Check the latest [Slides](https://docs.google.com/presentation/d/1nizTZlzuO7AqQkEHr1OxDoIW2Wew7Gxe2a93sPqfiQE/edit?usp=sharing) for delivering this workshop.
@@ -49,6 +54,12 @@ Session 2: API Security and Usage
 * [04. API Security](docs/labs/lab04/#lab-4) - Securing APIs with OpenID Connect and Red Hat Single Sign On
 * [05. API Developers](docs/labs/lab05/#lab-5) - Discovering APIs from Developer Portal
 * [06. API Consumption](docs/labs/lab06/#lab-6) - Connect Applications and APIs
+
+Session 3: Jenkins CICD
+
+* [07. 3scale-toolbox Install](docs/labs/lab201/#lab-1) - Install the 3scale toolbox locally
+* [08. 3scale-toolbox Connect](docs/labs/lab202/#lab-2) - Connect 3scale toolbox locally
+* [09. 3scale-toolbox OpenShift Setup](docs/labs/lab203/#lab-3) - Setup 3scale-toolbox in OpenShift
 
 ### Optional Labs
 
