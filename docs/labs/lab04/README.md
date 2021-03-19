@@ -228,6 +228,55 @@ So, you want more? Login to the Red Hat Single Sign On admin console for your re
 
 You can try to use Postman or OpenID Connet playground to test your integration. Remember to update the *Redirect URL*.
 
+1. Download the postman client if you already don't have it:
+
+   ![Postman](https://www.postman.com/downloads/)
+
+2. Create a new Request in postman click ****:
+   ![15-create-request.png](images/15-create-request.png "Create Request")
+3. Add the following properties:
+   * Request Name: **Get Locations**
+   * Collection Name: **Locations Collection**
+
+   ![16-add-properties.png](images/16-add-properties.png "Add properties")
+
+4. Click **Save to locations** button.
+
+5. Select **Authorization** tab, then click **Type** and select **Oauth 2.0**
+
+    ![17-select-auth.png](images/17-select-auth.png "Select Auth")
+6. Configure a new Token:
+
+   * Token Name: **RHSSO**
+   * Gran Type: **Authorization Code**
+   * Callback URL: **https://openidconnect.net/callback**
+   * Auth URL: **http://sso-rh-sso.apps.GUID.open.redhat.com/auth/realms/userX/protocol/openid-connect/auth**
+   * Access Token URL: **http://sso-rh-sso.apps.GUID.open.redhat.com/auth/realms/userX/protocol/openid-connect/token**
+   * Client ID: **<AplicationClient>**
+   * Client Secret: **<ApplicationToken>**
+   * Client Authentication: Send as Basic Auth header
+
+    ![18-get-access-token.png](images/18-get-access-token.png "New access token")
+
+7. Click in **Get New Access token**
+8. Add username and password in the rhsso browser:
+
+   ![19-rhsso-browser.png](images/19-rhsso-browser.png "RHSSO Browser")
+
+9. Click **Log in** button.
+
+10. If successful, you will see a page with the generated token. Click **Use Token** button to add it to the request.
+
+    ![20-use-token.png](images/20-use-token.png "RHSSO Browser")
+
+11. Add the url to test the service
+
+    * URL : http://location-service-userX.apps.GUID.open.redhat.com/locations
+
+12. Click **Send** Blue button:
+
+    ![21-send.png](images/21-send.png "Send")
+
 ## Summary
 
 Now that you can secure your API using three-leg authentication with Red Hat Single Sign-On, you can leverage the current assets of your organization like current LDAP identities or even federate the authentication using other IdP services.
