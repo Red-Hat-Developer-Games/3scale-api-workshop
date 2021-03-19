@@ -14,12 +14,14 @@ The workshop is intended to be delivered in person, but will provide enough guid
 * [Red Hat Single Sign On](https://access.redhat.com/products/red-hat-single-sign-on)
 * [Apicurio](https://www.apicur.io/)
 * [Microcks](http://microcks.github.io/)
+* [3scale-toolbox](https://github.com/3scale/3scale_toolbox/)
+* [Jenkins](https://www.jenkins.io/)
 
 ### Pre-requisites
 
 * Knowledge of the current version of the OpenAPI specification: [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
 * Internet access with no blacklist filtering on:
-  * *.openshiftworkshop.com
+  * *.open.redhat.com
   * *.onlinecurl.com
 
 ### Agenda
