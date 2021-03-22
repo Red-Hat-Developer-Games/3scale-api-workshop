@@ -2,14 +2,20 @@
 
 ## Jenkins CICD
 
-### Connect 3scale toolbox locally
+### Create new OpenAPI specification file
 
-* Duration: 15 mins
+* Duration: 30 mins
 * Audience: Developers, Architects, Devops
 
 ## Overview
 
-This section covers how to connect to the 3Scale on premise running instance
+This sections reminds us, how to create an API definition based on OpenAPI 3.0.2, based on this specification file we are going to deploy a NodeJS app.
+
+### Skipping The Lab
+
+We know sometimes we don't have enough time to go over step by step on the labs.
+
+If you are planning to skip this lab and follow the next one, we have already added the definition file in the here is a [link](https://raw.githubusercontent.com/misanche/3scaleworkshop-todo-app/main/src/openapi/openapi.yaml) to the specification generated in this lab.
 
 ### Environment
 
@@ -50,7 +56,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.open.redhat.com/
+    http://apicurio-studio.apps.GUID.open.redhat.com/
     ```
 
 2. Accept the self-signed certificate if you haven't: 
@@ -65,65 +71,154 @@ openshift
 
 3. Log in using your designated [user and password](#environment).
 
-    ![3scaletoolbox-login](images/login.png "Login")
+    ![design-login](images/design-01.png "Login")
 
-4. Click on the **wheel** icon in the top right corner.
+4. Click on **APIs** in the left side navigation menu from the Dashboard page.
 
-    ![3scaletoolbox-wheel](images/wheel.png "Wheel")
+    ![design-apis](images/design-02.png "APIs")
 
-5. Click on **Personal Settings**.
+5. Click on **Create New API**.
 
-    ![3scaletoolbox-personal-settings](images/personal-settings.png "Personal Settings")
+    ![design-new-api](images/design-03.png "Create New API")
 
-6. Click on **Tokens**.
+6. Create a brand new Access Token with the following information:
 
-    ![3scaletoolbox-tokens](images/tokens.png "Tokens")
+    * Name: **Todo List**
+    * Description: **Todo List Spec **
+    * Type: **OpenAPI 3.0.2**
+    * Template: **Blank API**
 
-7. In Access Tokens Section, click on **Add Access Token**
+    ![todo-01](images/todo-01.png "Create API")
 
-    ![3scaletoolbox-tokens](images/add-access-token.png "Add Access Token")
+7.  On the next screen, Click on **Edit API**.
 
-8. Create a brand new Access Token with the following information:
+    ![todo-02](images/todo-02.png "Edit API")
 
-    * Name: **toolbox_token**
-    * Scopes: **Account Management API**
-    * Permission: **Read & Write**
+8.   Now, we are going to create a new Data Type, click on **Add a data type**.
 
-    ![3scaletoolbox-](images/create-token.png "Create Token")
+    ![todo-03](images/todo-03.png "Add data type")
 
-9.  Click on **Create Access Token**.
+9.   Fill the sections with the following data:
 
-10.  Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
+     * Name: **Item**
+     * Description: **Item type**
+     * Enter JSON example:
 
-    ![3scaletoolbox-token-info](images/token-info.png "Token Info")
+        ```json
+            {
+                "id": "3423432432",
+                "name": "Bananas",
+                "description": "Buy bananas at Carrefour"
+            }
+        ```
 
-11.  Click on **I have copied the token**.
+     * Choose to create a REST Resource with the Data Type: **No Resource**
+    ![todo-08](images/todo-08.png "Data type")
 
-### Step 2: Connecting the 3scale toolbox
+10. Click **Save** button.
+11. Click on **Add a path** button:
+   ![todo-04](images/todo-04.png "Add a path")
+12. Enter a valid path:
+   * Path: **/items**
+   ![todo-05](images/todo-05.png "Add items path")
+13. Click **Add** button.
+14. Under the operations sections, click on **GET** button and click **Add Operation** button, then fill the **Operation ID** with **getItems**.
+   ![todo-06](images/todo-06.png "Add get operation")
+   ![todo-13](images/todo-13.png "Add Operation ID")
+15. The next step is add a new response for this GET operation, to do that, just click **Add a response** button.
+   ![todo-07](images/todo-07.png "Add a response")
+16. In the popup select **200 OK** Response Status Code and click **Add** button.
+    ![todo-09](images/todo-09.png "200 status")
+17. To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field, click **edit** button:
+    Description: **valid response**
+18. Click **Add a media type ** button in the same section.
+    ![todo-10](images/todo-10.png "Add a media type")
+19. Select **application/json** option and click **Add** button:
+    ![todo-11](images/todo-11.png "Add")
+20. Follow the steps as they appear in the image:
+     * Type: **Array**
+     * of: **Item**
+21. Lastly, Add an example:
+    * Name: **items**
+    * Example:
+        ```json
+                [
+            {
+                "id": "123123",
+                "name": "Buy Bananas",
+                "description": "Buy Bananas"
+            },
+            {
+                "id": "345345",
+                "name": "Buy Chocolate",
+                "description": "85% chocolate"
+            }
+        ]
+        ```
+### Step 2: Create POST method
 
-We have already setup the token for our user, now it's time to connect it with our 3scale-toolbox client, previosly installed.
+We have already setup the GET `/items` endpoint, let's increase it and add a second endpoint using th POST method. This method will allow us to create new Items.
 
-Let's start adding our 3Scale on-prem instance.
+1.  Under the operations sections, click on **POST** button click **Add Operation** button then fill the **Operation ID** with **createItem** then .
+2.  
+   ![todo-20](images/todo-20.png "Add get operation")
 
-1. Go to you terminal and type the following command:
+   ![todo-21](images/todo-21.png "Add Operation ID")
 
-    ```bash
-    3scale remote add 3scale-onprem "https://TOKEN@USERX-admin.apps.GUID.open.redhat.com/" -k
+2. With POST Operations, we need to send a body with the Item we want to create, to do that, click on **Add a request body**
+
+   ![todo-22](images/todo-22.png "Add Request Body")
+
+3. Now click on **Add a media type** button, choose on **Type** the **application/json**
+
+   ![todo-23](images/todo-23.png "add application/json")
+
+4. fill the form following the steps:
+
+   * Required
+   * Type: **Item**
+
+   ![todo-24](images/todo-24.png "type steps")
+
+5. Click on example and then **Add an example** button.
+
+   ![todo-25](images/todo-25.png "add example")
+
+6. Fill the popup with the data:
+
+   * Name: **item**
+   * Example:
+
+   ```json
+        {
+            "id": "123123",
+            "name": "Buy Bananas",
+            "description": "Buy Bananas"
+        }
     ```
 
-    * -k option: Allows to make the request with self signed certificates
-    * TOKEN: Add the Token generated previously.
-    * USERX: Add you username, For example: user1
-    * GUID: Add your instance name
-  
-2. Locate you configation file, type the command to locate the `.3scalerc.yml`:
+    ![todo-26](images/todo-26.png "example item")
 
-   ```bash
-    3scale --help
-    ```
+7. The next step is add a new response for this POST operation, to do that, just click **Add a response** button.
 
-    * Under the options section you will find -c ot --config-file option with the location of the file:
-    ![3scaletoolbox-rc-file](images/3scale-rc.png "3Scale-rc file")
+   ![todo-27](images/todo-27.png "Add a response")
+
+8. In the popup select **201 OK** Response Status Code and click **Add** button.
+
+    ![todo-28](images/todo-28.png "201 status")
+
+17. To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field
+    * Description: **Created description**
+
+### Step 3: Save the Definition file
+
+1. Finally, we have created the both endpoints needed for our application, to save the definition file, click **Todo List** breadcrumb.
+    ![todo-30](images/todo-30.png "save")
+2. Click **3 dots** and then **Download** button
+    ![todo-31](images/todo-31.png "download")
+3. Select the options as they appear, `yaml` format and without references:
+    ![todo-32](images/todo-32.png "save-options")
+
 
 ## Steps Beyond
 

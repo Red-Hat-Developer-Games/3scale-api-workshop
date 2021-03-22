@@ -31,7 +31,7 @@ A rough agenda for the workshop looks like this:
 #### Day 1
 * Red Hat 3scale API Management Overview: 20 mins
 * Workshop Overview: 10 mins
-* Labs: 3hrs
+* Labs: 3hrs 30min
 
 #### Day 2
 * Red Hat 3scale API Management with Jenkins : 20 mins
