@@ -4539,3 +4539,7 @@ parameters:
   name: APICAST_REGISTRY_URL
   required: true
   value: http://apicast-staging:8090/policies
+- name: WILDCARD_POLICY
+  description: Use "Subdomain" to create a wildcard route for apicast wildcard router
+  required: true
+  value: "None"
