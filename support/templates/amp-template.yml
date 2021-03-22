@@ -1047,27 +1047,6 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Allow
-- apiVersion: route.openshift.io/v1
-  kind: Route
-  metadata:
-    creationTimestamp: null
-    labels:
-      app: ${APP_LABEL}
-      threescale_component: backend
-    name: backend
-  spec:
-    host: backend-${TENANT_NAME}.${WILDCARD_DOMAIN}
-    port:
-      targetPort: http
-    tls:
-      insecureEdgeTerminationPolicy: Allow
-      termination: edge
-    to:
-      kind: Service
-      name: backend-listener
-      weight: null
-  status:
-    ingress: null
 - apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
