@@ -941,6 +941,112 @@ objects:
       deploymentConfig: backend-listener
   status:
     loadBalancer: {}
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: api-apicast-staging-route
+  spec:
+    host: api-${TENANT_NAME}-apicast-staging.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: apicast-staging
+    port:
+      targetPort: gateway
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: api-apicast-production-route
+  spec:
+    host: api-${TENANT_NAME}-apicast-production.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: apicast-production
+    port:
+      targetPort: gateway
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: apicast-wildcard-router-route
+  spec:
+    host: apicast-wildcard.amp.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: apicast-wildcard-router
+    port:
+      targetPort: http
+    wildcardPolicy: ${WILDCARD_POLICY}
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: system-provider-admin-route
+  spec:
+    host: ${TENANT_NAME}-admin.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: system-provider
+    port:
+      targetPort: http
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: system-master-admin-route
+  spec:
+    host: ${MASTER_NAME}-admin.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: system-master
+    port:
+      targetPort: http
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+
+
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: backend-route
+    labels:
+      app: system-route
+  spec:
+    host: backend-${TENANT_NAME}.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: backend-listener
+    port:
+      targetPort: http
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: system-developer-route
+  spec:
+    host: ${TENANT_NAME}.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: system-developer
+    port:
+      targetPort: http
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
