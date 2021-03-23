@@ -50,6 +50,35 @@
 
 - debug: var=oidc_issuer
 
+- name: Get Accounts
+  uri: 
+    url: "https://3scale-admin.{{ocp_apps_domain}}/admin/api/accounts.xml?access_token={{ admintoken }}&page=1&per_page=500"
+    method: GET
+    return_content: yes
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
+    validate_certs: no
+    status_code: 200
+  register: services_list
+  when: configure_only == 'false'
+
+- debug: var=services_list
+  when: configure_only == 'false'
+
+- name: Get account Id
+  xml:
+    xmlstring: '{{ services_list.content }}'
+    xpath: /accounts/account/id
+    content: text
+  register: services_xmlstring
+  when: services_list is defined and configure_only == 'false'
+
+- debug: var=services_xmlstring.matches[0].id
+  when: configure_only == 'false'
+
+- set_fact: account_id={{ services_xmlstring.matches[0].id }}
+  when: configure_only == 'false'
+
 - name: Config backend service proxy
   uri: 
     url: "https://3scale-admin.{{ocp_apps_domain}}/admin/api/services/{{ id }}/proxy.xml"

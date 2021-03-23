@@ -1,9 +1,14 @@
 ---
 - name: Make sure we go back to default project
   shell: "oc project default"
-
+- name: Create the threescale-registry-auth service account
+  shell: 'oc create secret docker-registry threescale-registry-auth \
+  --docker-server=registry.redhat.io \
+  --docker-username="{{ registry_io_username }}" \
+  --docker-password="{{ registry_io_password }}" -n {{ namespace }}'
+# https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/amp-template.yml
 - name: Create the 3scale app
-  shell: "oc new-app -f https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/amp-template.yml \
+  shell: "oc new-app -f https://raw.githubusercontent.com/misanche/3scale-api-workshop/master/support/templates/amp-template.yml \
   --param WILDCARD_DOMAIN={{ ocp_apps_domain }} --param ADMIN_PASSWORD=password --param WILDCARD_POLICY=Subdomain \
   --param ADMIN_ACCESS_TOKEN=admintoken --param MASTER_PASSWORD=password --param MASTER_ACCESS_TOKEN=mastertoken -n {{ namespace }}"
   when: configure_only == 'false'
@@ -29,7 +34,6 @@
   include_tasks: ./create-service.yml
   vars:
     admintoken: 'admintoken'
-    account_id: '3'
     name: 'Location API'
     backend_version: '1'
     system_name: 'location-api'
@@ -78,7 +82,6 @@
   include_tasks: ./create-service.yml
   vars:
     admintoken: 'admintoken'
-    account_id: '3'
     name: 'SSO Location API'
     backend_version: 'oidc'
     system_name: 'location-sso'
