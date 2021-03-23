@@ -896,15 +896,31 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Allow
+
 - apiVersion: v1
   kind: Route
   metadata:
-    name: apicast-wildcard-router-route
+    name: apicast-wildcard-production
   spec:
-    host: apicast-wildcard.amp.${WILDCARD_DOMAIN}
+    host: wildcard.pro.${WILDCARD_DOMAIN}
     to:
       kind: Service
-      name: apicast-wildcard-router
+      name: apicast-production
+    port:
+      targetPort: http
+    wildcardPolicy: ${WILDCARD_POLICY}
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Allow
+- apiVersion: v1
+  kind: Route
+  metadata:
+    name: apicast-wildcard-staging
+  spec:
+    host: wildcard.pre.${WILDCARD_DOMAIN}
+    to:
+      kind: Service
+      name: apicast-staging
     port:
       targetPort: http
     wildcardPolicy: ${WILDCARD_POLICY}
