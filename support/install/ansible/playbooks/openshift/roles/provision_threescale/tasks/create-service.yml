@@ -50,6 +50,10 @@
 
 - debug: var=oidc_issuer
 
+- name: Pause for 30 seconds for consolitation 
+  pause:
+    seconds: 30
+
 - name: Get Accounts
   uri: 
     url: "https://3scale-admin.{{ocp_apps_domain}}/admin/api/accounts.xml?access_token={{ admintoken }}&page=1&per_page=500"

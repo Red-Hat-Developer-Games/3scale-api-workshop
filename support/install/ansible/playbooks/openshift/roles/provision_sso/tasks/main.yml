@@ -3,17 +3,34 @@
   shell: "oc project default"
 
 - name: Check if image streams are available
-  shell: "oc describe is redhat-sso72-openshift -n openshift"
+  shell: "oc describe is rsso74-openshift-rhel8 -n openshift"
   register: imagestream_exists
   when: configure_only == 'false'
   ignore_errors: true
 
+- name: Create the registry-io-auth service account
+  shell: 'oc create secret docker-registry registry-io-auth \
+  --docker-server=registry.redhat.io \
+  --docker-username="{{ registry_io_username }}" \
+  --docker-password="{{ registry_io_password }}" -n openshift'
+  when: configure_only == 'false'
+  ignore_errors: true
+
+- name: Link pull secret to default service account
+  shell: 'oc secrets link default registry-io-auth --for=pull -n openshift'
+  when: configure_only == 'false'
+
+- name: Link pull secret to default service account builder
+  shell: 'oc secrets link builder registry-io-auth -n openshift'
+  when: configure_only == 'false'
+
 - name: Create image streams for RH SSO
-  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-image-stream.json -n openshift"
+  shell: "oc create -f https://raw.githubusercontent.com/jboss-container-images/redhat-sso-7-openshift-image/{{ sso_version}}-dev/templates/{{sso_version}}-image-stream.json -n openshift"
   when: configure_only == 'false' and imagestream_exists.failed
+  ignore_errors: true
 
 - name: Create secrets for RH SSO
-  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/secrets/sso-app-secret.json -n {{ sso_project }}"
+  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.9/secrets/sso-app-secret.json -n {{ sso_project }}"
   when: configure_only == 'false'
 
 - name: Create service account for clustering
@@ -24,8 +41,8 @@
   shell: "oc policy add-role-to-user view system:serviceaccount:{{ sso_project }}:sso-service-account -n {{ sso_project }}"
   when: configure_only == 'false'
 
-- name: Create RH SSO app
-  shell: "oc new-app -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-mysql-persistent.json -p HTTPS_NAME=jboss -p HTTPS_PASSWORD=mykeystorepass -p SSO_ADMIN_USERNAME=keyadmin \
+- name: Create RH SSO apps
+  shell: "oc new-app -f https://raw.githubusercontent.com/jboss-container-images/redhat-sso-7-openshift-image/{{ sso_version }}-dev/templates/sso74-postgresql-persistent.json -p HTTPS_NAME=jboss -p HTTPS_PASSWORD=mykeystorepass -p SSO_ADMIN_USERNAME=keyadmin \
   -p SSO_ADMIN_PASSWORD=keypassword -n {{sso_project}}"
   when: configure_only == 'false'
 
@@ -38,8 +55,8 @@
   register: wait_sso_result
   until: wait_sso_result is succeeded
   ignore_errors: yes
-  retries: 15
-  delay: 60
+  retries: 10
+  delay: 90
   when: create_realms
 
 - name: Get templated realm

@@ -6,7 +6,7 @@ apicurio_project: apicurio
 gogs_project: gogs
 microcks_project: microcks
 jenkins_project: jenkins
-sso_version: ose-v1.4.9
+sso_version: sso74
 ocp_domain: 3901.open.redhat.com
 ocp_apps_domain: apps.3901.open.redhat.com
 usersno: 20
