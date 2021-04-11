@@ -44,7 +44,7 @@ https://master.1234.open.redhat.com
 Your username is your asigned user number. For example, if you are assigned user number **1**, your username is: 
 
 ```bash
-user1
+user1@openshiftworkshop.com
 ```
 
 The password to login is always the same:
