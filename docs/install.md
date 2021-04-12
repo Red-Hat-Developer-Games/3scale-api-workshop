@@ -54,6 +54,8 @@ localhost ansible_connection=local
 [workshop:vars]
 ocp_domain=GUID.open.redhat.com
 ocp_apps_domain=apps.GUID.open.redhat.com
+registry_io_username=username
+registry_io_password=password!
 usersno=20
 threescale=true
 apicurio=true

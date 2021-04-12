@@ -4,7 +4,7 @@
 
 ### Securing APIs with OpenID Connect and Red Hat Single Sign On
 
-* Duration: 20 mins
+* Duration: 30 mins
 * Audience: API Owners, Product Managers, Developers, Architects
 
 ## Overview

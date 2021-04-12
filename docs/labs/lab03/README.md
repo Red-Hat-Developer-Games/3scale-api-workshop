@@ -77,47 +77,41 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![01-login.png](images/01-login.png)
 
-1. The first page you will land is the *API Management Dashboard*. Click on the **API** menu link.
+1. The first page you will land is the *API Management Dashboard*. Click on the **Dashboard** menu link and then click the **API** menu link.
 
     ![01a-dashboard.png](images/01a-dashboard.png)
 
-1. This is the *API Overview* page. Here you can take an overview of all your services. Click on the **Integration** link.
-
-    ![02-api-integration.png](images/02-api-integration.png)
-
-1. Click on the **edit integration settings** to edit the API settings for the gateway.
+1. This is the *API Overview* page. Here you can take an overview of all your products. Click on the **Integration** left menu link and then **Settings** link.
 
     ![03-edit-settings.png](images/03-edit-settings.png)
 
-1. Keep select the **APIcast** deployment option in the *Gateway* section.
+2. Keep select the **APIcast 3scale managed** deployment option in the *Deployment* section, under the Authentication section keep the **API Key (user_key) The application is identified & authenticated via a single string**.
 
-    ![04-apicast.png](images/04-apicast.png)
+    ![04-apicast.png](images/04-apicast-user-key.png)
 
-1. Scroll down and keep the **API Key (user_key)** Authentication.
+3. Scroll down and click on **Update Product** button.
 
-    ![05-authentication.png](images/05-authentication.png)
+    ![05-authentication.png](images/05-update-product.png)
 
-1. Click on **Update Service**.
-
-1. Click on the **add the Base URL of your API and save the configuration** button
-
-    ![04-base-url](images/04-base-url.png)
-
-1. Scroll down and expand the **MAPPING RULES** section to define the allowed methods on our exposed API.
+4. Click on **Mapping Rules** section under **Integration** menu to define the allowed methods on our exposed API.
 
     *The default mapping is the root ("/") of our API resources, something that we might want to avoid*.
 
     ![07b-mapping-rules.png](images/07b-mapping-rules.png)
 
-1. Click on the **Metric or Method (Define)**  link.
+5. Click Trash icon for the verb **GET** and pattern **/**, if a popup appears, confirm.
+   
+    ![07b-delete-mapping-rule.png](images/07b-delete-mapping-rule.png)
 
-    ![07b-mapping-rules-define.png](images/07b-mapping-rules-define.png)
+6. Click on **Method & Metrics** section under **Integration** menu.
 
-1. Click on the **New Method** link in the *Methods* section.
+    ![07b-method-metrics.png](images/07b-method-metrics.png)
+
+7. Click on the **New Method** link in the *Methods* section.
 
     ![07b-new-method.png](images/07b-new-method.png)
 
-1. Fill in the information for your Fuse Method.
+8.  Fill in the information for your Fuse Method.
 
     * Friendly name: **Get Locations**
 
@@ -127,25 +121,25 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![07b-new-method-data.png](images/07b-new-method-data.png)
 
-1. Click on **Create Method**.
+9.  Click on **Create Method**.
 
-1. Click on the **Add mapping rule** link
+10. Click on the **Add mapping rule** link
 
     ![07b-add-mapping-rule.png](images/07b-add-mapping-rule.png)
 
-1. Click on the edit icon next to the GET mapping rule.
+11. Set the following properties: 
 
-    ![07b-edit-mapping-rule.png](images/07b-edit-mapping-rule.png)
+    * Verb: **GET**
+    * Pattern: **/locations**
+    * Metric or Method to increment: **Get Locations**
+    * Increment by: **1**
+    * Friendly name: **Get Locations**
+    * Position: **1**
 
-1. Type in the *Pattern* text box the following: 
+    ![07b-create-mapping-rule.png](images/07b-create-mapping-rule.png)
 
-    ```bash
-    /locations
-    ```
-
-1. Select **locations_all** as Method from the combo box.
-
-    ![07b-getall-rule.png](images/07b-getall-rule.png)
+12. Click on **Create Mapping Rule**
+    ![07b-mapping-end.png](images/07b-mapping-end.png)
 
 ### Step 2: Define your API Policies
 

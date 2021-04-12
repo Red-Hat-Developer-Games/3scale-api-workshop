@@ -2,9 +2,9 @@
 
 ## Jenkins CICD
 
-### Connect 3scale toolbox locally
+### Connect 3scale toolbox locally and create the secret file
 
-* Duration: 15 mins
+* Duration: 25 mins
 * Audience: Developers, Architects, Devops
 
 ## Overview
@@ -125,13 +125,26 @@ Let's start adding our 3Scale on-prem instance.
     * Under the options section you will find -c ot --config-file option with the location of the file:
     ![3scaletoolbox-rc-file](images/3scale-rc.png "3Scale-rc file")
 
+### Step 3: Create the 3cale-toolbox secret
+If we want to use 3scale-toolbox in our Jenkins pipelines, we need to create the recently created `.3scalerc.yaml` file in our project. The toolbox will use the credentials provided in the `yaml` to access our 3scale On Premise instance.
+
+1. Run the following command using the OC client:
+   ```bash
+    oc create secret generic 3scale-toolbox -n userX --from-file="$HOME/.3scalerc.yaml"
+   ```
+   For example:
+
+   ```bash
+        oc create secret generic 3scale-toolbox -n user1 --from-file=/Users/mikelsanchezherrero/.3scalerc.yaml
+   ```
+
 ## Steps Beyond
 
 So, you want more? Have you tried to familiarize with 3scale-toolbox, try different commands.
 
 ## Summary
 
-In this lab you have learned how to generate access tokens and how to get the `.3scalerc.yml`.
+In this lab you have learned how to generate access tokens and how to get the `.3scalerc.yaml`.
 
 You can now proceed to [Lab 3](../lab203/#lab-3)
 

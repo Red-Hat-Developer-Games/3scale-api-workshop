@@ -210,6 +210,17 @@ We have already setup the GET `/items` endpoint, let's increase it and add a sec
 17. To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field
     * Description: **Created description**
 
+### Step 4: Secure the api
+1. In order to secure the api with 3scale API Gateway, we are going to define a new security scheme, based on api-key, click **Add a security scheme** button under security schemes section:
+![todo-34](images/todo-34.png "add scheme")
+2. Fill the form with the following data:
+    * Name: **api-key**
+    * Description: **Use a 3scale API Key**
+    * Type: **API Key**
+    * Key Location: **HTTP header**
+    * Name: **api-key**
+
+![todo-33](images/todo-33.png "scheme data")
 ### Step 3: Save the Definition file
 
 1. Finally, we have created the both endpoints needed for our application, to save the definition file, click **Todo List** breadcrumb.
