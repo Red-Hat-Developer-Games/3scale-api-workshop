@@ -239,11 +239,7 @@ The order in which the policies are executed, known as the “policy chain”, c
         curl "https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443/locations?user_key=APIKEY" -k
     ```
 
-6. Click on **Back to Integration &amp; Configuration** link to return to your API overview.
-
-    ![08aa-back-to-integration.png](images/08aa-back-to-integration.png)
-
-7. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+6. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
     ![08a-promote-production.png](images/08a-promote-production.png)
 
