@@ -159,7 +159,7 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     _Out-of-the-box 3scale includes a set of policies you can use to modify the way your API gateway behaves. For this lab, we will focus on the **Cross Origin Resource Sharing (CORS)** one as we will use it in the consumption lab_.
 
-1. Click in the **CORS** link to add the policy.
+1. Click in the **CORS Request Handling** link to add the policy.
 
     ![03-cors-policy](images/policies-03.png "CORS")
 
@@ -167,7 +167,7 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     ![04-chain-order](images/policies-04.png "Chain Order")
 
-1. Now **CORS** policy will be executed before the **APIcast**. Click the **CORS** link to edit the policy.
+1. Now **CORS** policy will be executed before the **APIcast**. Click the **CORS Request Handling** link to edit the policy.
 
     ![05-cors-configuration](images/policies-05.png "Cors Configuration")
 
@@ -189,13 +189,31 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     ![09-allow-methods](images/policies-09.png "Allow Methods")
 
-1. Click the **Submit** button to save the policy configuration.
+1. Click the **Update Policy** button to save the policy configuration.
+
+### Step 3: Setup the API Backend
+
+1. Click in the main menu, and then click in API Backend section.
+   ![3-api-backend](images/3-api-backend.png "Api Backend")
+2. Click **edit** button in the **Backend Overview**
+   ![3-edit-backend](images/3-edit-backend.png "Edit Backend")
+3. Under the **API** section edit the **Private Base Url**:
+   
+    * Private Base URL: **http://location-service.userX.svc:8080**
+
+    ![3-update-backend](images/3-update-backend.png "Update Backend")
 
 ### Step 3: Configure the Upstream Endpoint
 
-1. Scroll back to the top of the page. Fill in the information for accessing your API:
+1. Now it's time to go back again to the API section
+   
+   ![4-api-section](images/4-api-section.png "Api section")
 
-    * Private Base URL: **http://location-service.userX.svc:8080**
+2. Click the **settings** section, under **Integration**:
+   
+   ![4-integration-settings](images/4-integration-settings.png "Integration Settings")
+
+3. Fill in the information for accessing your API:
 
     * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443**
 
@@ -207,25 +225,25 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     ![07-baseurl-configuration.png](images/07-baseurl-configuration.png)
 
-1. Scroll down to the **API Test GET request**.
+4. Go to **Configuration**
+    ![08a-configuration.png](images/08a-configuration.png)
 
-1. Type in the textbox:
+5. Click on the **Promote v. 1 to Staging APICast** to promote the current configuration to Staging.
 
+    ![08b-update-staging.png](images/08-update-staging.png)
+
+    *You can test if it's fine, by picking up the content inside **Example curl for testing** and testing it in your terminal. (-k option maybe it's needed due to self signed certificates)*.
+
+    Example:
     ```bash
-    /locations
+        curl "https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443/locations?user_key=APIKEY" -k
     ```
 
-1. Click on the **Update the Staging Environment** to save the changes and check the connection between client, gateway and API.
-
-    ![08-update-staging.png](images/08-update-staging.png)
-
-    *If everything works, you will get a green message on the left*.
-
-1. Click on **Back to Integration &amp; Configuration** link to return to your API overview.
+6. Click on **Back to Integration &amp; Configuration** link to return to your API overview.
 
     ![08aa-back-to-integration.png](images/08aa-back-to-integration.png)
 
-1. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+7. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
     ![08a-promote-production.png](images/08a-promote-production.png)
 
