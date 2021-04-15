@@ -105,7 +105,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 6. Click on **Method & Metrics** section under **Integration** menu.
 
-    ![07b-method-metrics.png](images/07b-method-metrics.png)
+    ![07b-mapping-rules-define.png](images/07b-mapping-rules-define)
 
 7. Click on the **New Method** link in the *Methods* section.
 
