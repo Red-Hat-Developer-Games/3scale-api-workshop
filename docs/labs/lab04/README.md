@@ -141,33 +141,16 @@ openshift
 
     ![01a-dashboard.png](images/01a-dashboard.png)
 
-1. This is the *API Overview* page. Here you can take an overview of all your services. Click on the **Integration** link.
+1. This is the *API Overview* page. Here you can take an overview of all your services. Click on the **Settings** menu link and the **Settings** menu link.
 
     ![02-api-integration.png](images/02-api-integration.png)
 
-1. Click on the **edit integration settings** to edit the API settings for the gateway.
+1. Scroll down the page, under the *Authentication* section, select **OpenID Connect Use OpenID Connect for any OAuth 2.0 flow**.
 
-    ![03-edit-settings.png](images/03-edit-settings.png)
+    ![03-authentication.png](images/03-authentication.png)
 
-1. Scrolll down the page, under the *Authentication* deployment options, select **OpenID Connect**. 
 
-    ![04-authentication.png](images/04-authentication.png)
-
-1. Click on the **Update Service** button.
-
-1. Dismiss the warning about changing the Authentication mode by clicking **OK**.
-
-    ![04b-authentication-warning.png](images/04b-authentication-warning.png)
-    
-1. Back in the service integration page, click on the **edit APIcast configuration**.
-
-    ![05-edit-apicast.png](images/05-edit-apicast.png)
-
-1. Scroll down the page and expand the authentication options by clicking the **Authentication Settings** link.
-
-    ![05-authentication-settings.png](images/05-authentication-settings.png)
-
-1. In the **OpenID Connect Issuer** field, type in your previously noted client credentials with the URL of your Red Hat Single Sing On instance:
+2. In the **OPENID CONNECT (OIDC) BASICS** section, change the  type in your previously noted client credentials with the URL of your Red Hat Single Sing On instance:
 
     ```bash
     http://3scale-admin:CLIENT_SECRET@sso-rh-sso.apps.GUID.open.redhat.com/auth/realms/userX
@@ -175,46 +158,53 @@ openshift
 
     *Remember to replace the GUID with your [environment](#environment) value, your user number and the CLIENT_SECRET you get in the [Step 1](#step-1-get-red-hat-single-sign-on-service-account-credentials)*.
 
-    ![06-openid-issuer.png](images/06-openid-issuer.png "OpenID Connect Issuer")
+    ![04-openid-issuer.png](images/04-openid-issuer.png "OpenID Connect Issuer")
 
-1. Scroll down the page and click on the **Update Staging Environment** button.
+1. Scroll down the page and click on the **Update Product** button.
 
-    ![08-back-integration.png](images/08-back-integration.png "Back Integration")
+    ![05-update.png](images/05-update.png "Update Product")
 
-1. After the reload, scroll down again and click the **Back to Integration &amp; Configuration** link.
+1. Once it has been updated, you will notice that a warning appears under **Configuration** menu, click on the menu link.
 
-    ![07-update-environment.png](images/07-update-environment.png "Update Environment")
+    ![06-configuration.png](images/06-configuration.png "Configuration")
 
-1. Promote to Production by clicking the **Promote to Production** button.
+1.  Promote to Staging by clicking the **Promote to Stanging APIcast** button.
+
+    ![07-promote-staging.png](images/07-promote-staging.png "Promote to Staging")
+
+2.  Promote to Production by clicking the **Promote to Production** button.
 
     ![08a-promote-production.png](images/08a-promote-production.png "Update Environment")
 
 ### Step 4: Create a Test App
 
-1. Go to the *Developers* tab and click on **Developer**.
+1. Go to **Audience** main menu link.
+   ![09-audience.png](images/09-audience.png "Audience")
 
-    ![09-developers.png](images/09-developers.png "Developers")
+2. Click on **Developer**.
 
-1. Click on the **Applications** link.
+    ![09a-developer.png](images/09-developer.png "Developer")
+
+3. Click on the **Applications** link.
 
     ![10-applications.png](images/10-applications.png "Applications")
 
-1. Click on **Create Application** link.
+4. Click on **Create Application** link.
 
     ![11-create-application.png](images/11-create-application.png "Create Application")
 
-1. Select **Basic** plan from the combo box. Type the following information:
+5. Select **Basic** plan from the combo box. Type the following information:
 
     * Name: **Secure App**
     * Description: **OpenID Connect Secured Application**
 
     ![12-application-details.png](images/12-application-details.png "Application Details")
 
-1. Finally, scroll down the page and click on the **Create Application** button.
+6. Finally, scroll down the page and click on the **Create Application** button.
 
     ![13-create-app.png](images/13-create-app.png "Create App")
 
-1. Note the *API Credentials*. Write them down as you will need the **Client ID** and the **Client Secret** to test your integration.
+7. Note the *API Credentials*. Write them down as you will need the **Client ID** and the **Client Secret** to test your integration.
 
     ![14-app-credentials.png](images/14-app-credentials.png "App Credentials")
 
@@ -230,7 +220,7 @@ You can try to use Postman or OpenID Connet playground to test your integration.
 
 1. Download the postman client if you already don't have it:
 
-   ![Postman](https://www.postman.com/downloads/)
+   [Postman](https://www.postman.com/downloads/)
 
 2. Create a new Request in postman click ****:
    ![15-create-request.png](images/15-create-request.png "Create Request")
