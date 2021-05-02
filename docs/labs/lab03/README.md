@@ -225,10 +225,13 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     ![07-baseurl-configuration.png](images/07-baseurl-configuration.png)
 
-4. Go to **Configuration**
+4. Scroll down and click **Update product**
+   ![07a-save.png](images/07a-save.png)
+
+5. Go to **Configuration**
     ![08a-configuration.png](images/08a-configuration.png)
 
-5. Click on the **Promote v. 1 to Staging APICast** to promote the current configuration to Staging.
+6. Click on the **Promote v. 1 to Staging APICast** to promote the current configuration to Staging.
 
     ![08b-update-staging.png](images/08-update-staging.png)
 
@@ -239,7 +242,7 @@ The order in which the policies are executed, known as the “policy chain”, c
         curl "https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443/locations?user_key=APIKEY" -k
     ```
 
-6. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+7. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
 
     ![08a-promote-production.png](images/08a-promote-production.png)
 
