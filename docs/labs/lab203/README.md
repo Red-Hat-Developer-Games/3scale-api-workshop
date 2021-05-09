@@ -98,7 +98,7 @@ openshift
 
     ![todo-03](images/todo-03.png "Add data type")
 
-9.   Fill the sections with the following data:
+9.  Fill the sections with the following data:
 
      * Name: **Item**
      * Description: **Item type**
@@ -119,10 +119,15 @@ openshift
 11. Click on **Add a path** button:
    ![todo-04](images/todo-04.png "Add a path")
 12. Enter a valid path:
-   * Path: **/items**
+
+* Path: **/items**
+
    ![todo-05](images/todo-05.png "Add items path")
+
 13. Click **Add** button.
+
 14. Under the operations sections, click on **GET** button and click **Add Operation** button, then fill the **Operation ID** with **getItems**.
+    
    ![todo-06](images/todo-06.png "Add get operation")
    ![todo-13](images/todo-13.png "Add Operation ID")
 15. The next step is add a new response for this GET operation, to do that, just click **Add a response** button.
