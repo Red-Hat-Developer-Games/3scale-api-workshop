@@ -89,8 +89,22 @@ One of the prerequisites of this course is having an OC Cli already installed. i
     ```bash
         oc start-build todo-app-pipeline -n userX
     ```
-7. Once the pipeline has finished succesfully, you can access again 3scale to check if the new API has been created.
-   
+
+7. Once the pipeline has finished succesfully, you will see the pipeline as this:
+![pipeline-successful](images/pipeline-successful.png "Pipeline Successful")
+
+8. You can access again 3scale admin portal to check if the new API has been created.
+
+    ```bash
+        https://userX-admin.apps.GUID.open.redhat.com
+    ```
+
+    ![new-api](images/new-api.png "New API")
+
+9. Check if it's promoted until production. You can check it by clicking **Integrations -> Configuration** under Todo List (v1.0.0)
+
+    ![production](images/production.png "Production Deployment")
+
 ## Steps Beyond
 
 So, you want more? Have you tried to see the source code of the nodejs app? you can improve it with more endpoints, DELETE paths and so on.
