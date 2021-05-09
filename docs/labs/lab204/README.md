@@ -113,19 +113,29 @@ Todo App creates a Node.js backend. This allow us to make calls and retrieve inf
 
     ![05-template-information](images/consume-09.png "Information")
 8. Click the **advanced options** link, the reason is because we are using the new github branching model, where `master` is no longer de default branch, instead `main` is used.
+
     ![deploy](images/deploy-04.png "Deploy node")
+
 9.  Fill the data with:
+
     * Name: **todo-app**
     * Git Repository URL: **http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git**
     * Git Reference: **main**
+
     ![deploy-info](images/deploy-05.png "Deploy info")
+
 10. Click **Create** blue button located at the bottom of the page.
+
 11. In the Overview section you will be able to see how the new build is running, later todo-app deployment will appear as deployed:
+
      ![deployed](images/deploy-06.png "Deployed")
+
 12. Now you can type the following in your terminal to retrieve the response from the service
+
     ```bash
     curl --location --request GET 'http://todo-app-userX.apps.GUID.open.redhat.com/items'
     ```
+
     or you can add new values:
 
     ```bash
