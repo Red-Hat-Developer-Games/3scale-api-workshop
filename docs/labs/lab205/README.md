@@ -73,10 +73,23 @@ One of the prerequisites of this course is having an OC Cli already installed. i
    ![pipeline-error](images/pipeline-error.png "Pipeline Error")
 
 5. To set the variables type the following command:
+
    ```bash
-    oc new-build http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git#main --name=todo-app-pipeline -n user1
+    oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git" \
+    GIT_BRANCH="main" PARAMS_OPENAPI_SPEC="src/openapi/openapi.yaml" \
+    APP_NAME="todo_api" \
+    PRIVATE_URL="http://todo-app-userX.apps.GUID.open.redhat.com" \
+    STAGING_URL="https://todo-userX.pre.apps.GUID.open.redhat.com:443" \
+    PRODUCTION_URL="https://todo-userX.pro.apps.GUID.open.redhat.com:443" \
+    INSTANCE="3scale-onprem" OCP_PROJECT="userX" \
+    SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n user1
     ```
-6. 
+
+6. Start the new build manually by running the follwing command:
+    ```bash
+        oc start-build todo-app-pipeline -n userX
+    ```
+7. Once the pipeline has finished succesfully, you can access again 3scale to check if the new API has been created.
    
 ## Steps Beyond
 
@@ -95,15 +108,3 @@ You can now proceed to [Lab 5](../lab05/#lab-5)
   * [NodeJS](https://nodejs.org)
 * Openshift
   * [Build Strategies](https://docs.openshift.com/container-platform/4.7/cicd/builds/build-strategies.html)
-
-
-
-
-oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.bilbao-8ecb.open.redhat.com/user1/todo-app.git" \
-GIT_BRANCH="main" PARAMS_OPENAPI_SPEC="src/openapi/openapi.yaml" \
-APP_NAME="todo_api" \
-PRIVATE_URL="http://todo-app-user1.apps.bilbao-8ecb.open.redhat.com" \
-STAGING_URL="https://todo-user1.pre.apps.bilbao-8ecb.open.redhat.com:443" \
-PRODUCTION_URL="https://todo-user1.pro.apps.bilbao-8ecb.open.redhat.com:443" \
-INSTANCE="3scale-onprem" OCP_PROJECT="user1" \
-SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n user1

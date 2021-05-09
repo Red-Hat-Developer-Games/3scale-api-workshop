@@ -907,7 +907,7 @@ objects:
       kind: Service
       name: apicast-production
     port:
-      targetPort: http
+      targetPort: gateway
     wildcardPolicy: ${WILDCARD_POLICY}
     tls:
       termination: edge
@@ -922,7 +922,7 @@ objects:
       kind: Service
       name: apicast-staging
     port:
-      targetPort: http
+      targetPort: gateway
     wildcardPolicy: ${WILDCARD_POLICY}
     tls:
       termination: edge
