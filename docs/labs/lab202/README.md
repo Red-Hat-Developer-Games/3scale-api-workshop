@@ -1,4 +1,4 @@
-# Lab 201
+# Lab 202
 
 ## Jenkins CICD
 
@@ -71,33 +71,29 @@ openshift
 
     ![3scaletoolbox-wheel](images/wheel.png "Wheel")
 
-5. Click on **Personal Settings**.
+5. Click on **Personal Settings** and then **Tokens**.
 
     ![3scaletoolbox-personal-settings](images/personal-settings.png "Personal Settings")
 
-6. Click on **Tokens**.
-
-    ![3scaletoolbox-tokens](images/tokens.png "Tokens")
-
-7. In Access Tokens Section, click on **Add Access Token**
+6. In Access Tokens Section, click on **Add Access Token**
 
     ![3scaletoolbox-tokens](images/add-access-token.png "Add Access Token")
 
-8. Create a brand new Access Token with the following information:
+7. Create a brand new Access Token with the following information:
 
     * Name: **toolbox_token**
     * Scopes: **Account Management API**
     * Permission: **Read & Write**
 
-    ![3scaletoolbox-](images/create-token.png "Create Token")
+    ![3scaletoolbox-create-token](images/create-token.png "Create Token")
 
-9.  Click on **Create Access Token**.
+8.  Click on **Create Access Token**.
 
-10.  Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
+9.   Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
 
     ![3scaletoolbox-token-info](images/token-info.png "Token Info")
 
-11.  Click on **I have copied the token**.
+10.  Click on **I have copied the token**.
 
 ### Step 2: Connecting the 3scale toolbox
 
