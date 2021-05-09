@@ -1,4 +1,4 @@
-# Lab 201
+# Lab 203
 
 ## Jenkins CICD
 
@@ -21,9 +21,9 @@ If you are planning to skip this lab and follow the next one, we have already ad
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
 https://master.GUID.open.redhat.com
@@ -37,10 +37,10 @@ https://master.1234.open.redhat.com
 
 **Credentials:**
 
-Your username is your asigned user number. For example, if you are assigned user number **1**, your username is: 
+Your username is your asigned user number and @openshiftworkshop.com. For example, if you are assigned user number **1**, your username is:
 
 ```bash
-user1
+user1@openshiftworkshop.com
 ```
 
 The password to login is always the same:
@@ -94,7 +94,7 @@ openshift
 
     ![todo-02](images/todo-02.png "Edit API")
 
-8.   Now, we are going to create a new Data Type, click on **Add a data type**.
+8.  Now, we are going to create a new Data Type, click on **Add a data type**.
 
     ![todo-03](images/todo-03.png "Add data type")
 
