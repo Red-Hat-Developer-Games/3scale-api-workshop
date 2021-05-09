@@ -101,24 +101,23 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 
     ![new-api](images/new-api.png "New API")
 
+    *Note: If it fails try to guess why it is, Hint: Could be the account assigned to the application plan doesn't exists? Try to update your Jenkinsfile if it fails with the right number*
+
 9. Check if it's promoted until production. You can check it by clicking **Integrations -> Configuration** under Todo List (v1.0.0)
 
     ![production](images/production.png "Production Deployment")
 
 ## Steps Beyond
 
-So, you want more? Have you tried to see the source code of the nodejs app? you can improve it with more endpoints, DELETE paths and so on.
+So, you want more? Have you tried to define the API using Oauth instead of api-key? Have you checked the Jenkinsfile, you could add the app deployment and the api together. 
 
 ## Summary
 
-In this lab you used Gogs to clone a repo, and you have learned how to deploy a NodeJS app using s2i.
-
-You can now proceed to [Lab 5](../lab05/#lab-5)
+In this lab you have learned how to create builds of type pipeline and deploy APIs trough the API.
 
 ## Notes and Further Reading
 
-* NodeJS
-  * [Express.js](https://expressjs.com)
-  * [NodeJS](https://nodejs.org)
-* Openshift
-  * [Build Strategies](https://docs.openshift.com/container-platform/4.7/cicd/builds/build-strategies.html)
+* 3Scale toolbox 
+  * [3scale-toolbox-jenkins](https://github.com/rh-integration/3scale-toolbox-jenkins-samples)
+  * [Developers 3scale-toolbox](https://developers.redhat.com/blog/2019/07/31/using-the-3scale-toolbox-jenkins-shared-library/)
+  * [3scale-toolbox-library](https://github.com/rh-integration/3scale-toolbox-jenkins)
