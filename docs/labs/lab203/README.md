@@ -144,25 +144,23 @@ openshift
 
     Description: **valid response**
 
-18. Click **Add a media type** button in the same section.
-
     ![todo-10](images/todo-10.png "Add a media type")
 
-19. Select **application/json** option and click **Add** button:
+18. Click **Add a media type** button in the same section and select **application/json** option and click **Add** button:
 
     ![todo-11](images/todo-11.png "Add")
 
-20. Follow the steps as they appear in the image:
+19. Follow the steps as they appear in the image:
 
      * Type: **Array**
      * of: **Item**
 
-21. Lastly, Add an example:
+20. Lastly, Add an example:
 
     * Name: **items**
     * Example:
         ```json
-                [
+        [
             {
                 "id": "123123",
                 "name": "Buy Bananas",
@@ -179,9 +177,11 @@ openshift
 
 We have already setup the GET `/items` endpoint, let's increase it and add a second endpoint using th POST method. This method will allow us to create new Items.
 
-1.  Under the operations sections, click on **POST** button click **Add Operation** button then fill the **Operation ID** with **createItem** then .
-2.  
+1.  Under the operations sections, click on **POST** button click **Add Operation** button.
+ 
    ![todo-20](images/todo-20.png "Add get operation")
+
+1. fill the **Operation ID** with **createItem**.
 
    ![todo-21](images/todo-21.png "Add Operation ID")
 
@@ -193,8 +193,8 @@ We have already setup the GET `/items` endpoint, let's increase it and add a sec
 
    ![todo-23](images/todo-23.png "add application/json")
 
-4. fill the form following the steps:
-
+4. Fill the form, following the steps:
+   * Description: post method
    * Required
    * Type: **Item**
 
@@ -227,7 +227,7 @@ We have already setup the GET `/items` endpoint, let's increase it and add a sec
 
     ![todo-28](images/todo-28.png "201 status")
 
-17. To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field
+9.  To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field
     * Description: **Created description**
 
 ### Step 4: Secure the api
@@ -250,18 +250,17 @@ We have already setup the GET `/items` endpoint, let's increase it and add a sec
 3. Select the options as they appear, `yaml` format and without references:
     ![todo-32](images/todo-32.png "save-options")
 
-
 ## Steps Beyond
 
-So, you want more? Have you tried to familiarize with 3scale-toolbox, try different commands.
+So, you want more? Have you tried to familiarize with apicurio.
 
 ## Summary
 
-In this lab you have learned how to generate access tokens and how to get the `.3scalerc.yml`.
+In this lab you have learned how to generate the API Spec using Apicurio, you have also learned to secure an api using api-key.
 
-You can now proceed to [Lab 3](../lab203/#lab-3)
+You can now proceed to [Lab 4](../lab204/#lab-4)
 
 ## Notes and Further Reading
 
 * 3Scale API Gateway
-  * [Tokens](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.4/html/accounts/tokens)
+  * [APICurio](https://www.apicur.io/)
