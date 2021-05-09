@@ -157,7 +157,7 @@ So, you want more? Have you tried to see the source code of the nodejs app? you 
 
 In this lab you used Gogs to clone a repo, and you have learned how to deploy a NodeJS app using s2i.
 
-You can now proceed to [Lab 5](../lab05/#lab-5)
+You can now proceed to [Lab 5](../lab205/#lab-5)
 
 ## Notes and Further Reading
 
