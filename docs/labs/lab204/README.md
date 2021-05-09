@@ -4,7 +4,7 @@
 
 ### Deploy NodeJS TODO App
 
-* Duration: 30 mins
+* Duration: 15 mins
 * Audience: Developers, Architects, Devops
 
 ## Overview
@@ -54,18 +54,18 @@ Follow this instructions to set up the repository.
 1. Open a browser window and navigate to:
 
     ```bash
-    http://gogs.apps.GUID.open.redhat.com/user/login?redirect_to=
+    http://gogs.apps.GUID.open.redhat.com/user/login
     ```
 
-1. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
+2. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
 
     ![gogs-sign-in](images/consume-01.png "Sign In")
 
-1. In the main page, click in the **+** sign in the right top corner to display the *New* menu. Click the **New Migration** option.
+3. In the main page, click in the **+** sign in the right top corner to display the *New* menu. Click the **New Migration** option.
 
     ![gogs-new](images/consume-02.png "New Migration")
 
-1. Fill in the information of the repository migration with the following values:
+4. Fill in the information of the repository migration with the following values:
 
     * Clone Address: **https://github.com/misanche/3scaleworkshop-todo-app.git**
     * Owner: **UserX**
@@ -73,7 +73,7 @@ Follow this instructions to set up the repository.
 
     ![gogs-migration](images/consume-03.png "New Migration Repository")
 
-2. Click on **Migrate Repository** to fork the GitHub repo into Gogs.
+5. Click on **Migrate Repository** to fork the GitHub repo into Gogs.
 
     *You now have a working copy of the todo app backend. If you know how to, clone the repository to work locally, or you can continue working using Gogs online editor*.
 
@@ -141,31 +141,18 @@ Todo App creates a Node.js backend. This allow us to make calls and retrieve inf
 
 ## Steps Beyond
 
-So, you want more? Did you notice the link **source** when editing the *Paths* or the *Definitions*? Get back to the API editor and follow the link. What do you see? Apicurio lets you follow the form-based editor or go one step beyond and also lets you direct edit the source of your API definition.
+So, you want more? Have you tried to see the source code of the nodejs app? you can improve it with more endpoints, DELETE paths and so on.
 
 ## Summary
 
-In this lab you used Apicurio Studio to create a simple API definition using the OpenAPI Specification. You learned how to author and download a standards compliant API Specification using Red Hat's APICurio.
+In this lab you used Gogs to clone a repo, and you have learned how to deploy a NodeJS app using s2i.
 
-You can now proceed to [Lab 2](../lab02/#lab-2)
+You can now proceed to [Lab 5](../lab05/#lab-5)
 
 ## Notes and Further Reading
 
-* Apicurio
-  * [Webpage](https://www.apicur.io)
-  * [Roadmap](https://www.apicur.io/roadmap/)
-* OpenAPI
-  * [OpenAPI Initiative](https://www.openapis.org/)
-  * [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
-
-
-oc new-build http://gogs.apps.bilbao-8ecb.open.redhat.com/user1/todo-app.git#main --name=todo-app-pipeline -n user1
-
-oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.bilbao-8ecb.open.redhat.com/user1/todo-app.git" \
-GIT_BRANCH="main" PARAMS_OPENAPI_SPEC="src/openapi/openapi.yaml" \
-APP_NAME="todo_api" \
-PRIVATE_URL="http://todo-app-user1.apps.bilbao-8ecb.open.redhat.com" \
-STAGING_URL="https://todo-user1.pre.apps.bilbao-8ecb.open.redhat.com:443" \
-PRODUCTION_URL="https://todo-user1.pro.apps.bilbao-8ecb.open.redhat.com:443" \
-INSTANCE="3scale-onprem" OCP_PROJECT="user1" \
-SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n user1
+* NodeJS
+  * [Express.js](https://expressjs.com)
+  * [NodeJS](https://nodejs.org)
+* Openshift
+  * [Build Strategies](https://docs.openshift.com/container-platform/4.7/cicd/builds/build-strategies.html)
