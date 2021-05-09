@@ -127,23 +127,38 @@ openshift
 13. Click **Add** button.
 
 14. Under the operations sections, click on **GET** button and click **Add Operation** button, then fill the **Operation ID** with **getItems**.
-    
+
    ![todo-06](images/todo-06.png "Add get operation")
+
    ![todo-13](images/todo-13.png "Add Operation ID")
+
 15. The next step is add a new response for this GET operation, to do that, just click **Add a response** button.
+
    ![todo-07](images/todo-07.png "Add a response")
+
 16. In the popup select **200 OK** Response Status Code and click **Add** button.
+
     ![todo-09](images/todo-09.png "200 status")
+
 17. To remove all the warnings appeared in the 200 Status code Response, we need to fill the Description field, click **edit** button:
+
     Description: **valid response**
-18. Click **Add a media type ** button in the same section.
+
+18. Click **Add a media type** button in the same section.
+
     ![todo-10](images/todo-10.png "Add a media type")
+
 19. Select **application/json** option and click **Add** button:
+
     ![todo-11](images/todo-11.png "Add")
+
 20. Follow the steps as they appear in the image:
+
      * Type: **Array**
      * of: **Item**
+
 21. Lastly, Add an example:
+
     * Name: **items**
     * Example:
         ```json
