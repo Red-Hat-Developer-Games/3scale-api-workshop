@@ -1,4 +1,4 @@
-# Lab 204
+# Lab 205
 
 ## Jenkins CICD
 
@@ -15,9 +15,9 @@ This section covers how to create an openshift pipeline build to trigger a jenki
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
 https://master.GUID.open.redhat.com
