@@ -258,7 +258,7 @@ So, you want more? Have you tried to familiarize with apicurio.
 
 In this lab you have learned how to generate the API Spec using Apicurio, you have also learned to secure an api using api-key.
 
-You can now proceed to [Lab 4](../lab204/#lab-4)
+You can now proceed to [Lab 4](../lab204/#lab-204)
 
 ## Notes and Further Reading
 

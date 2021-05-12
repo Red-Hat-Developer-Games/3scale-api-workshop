@@ -270,7 +270,7 @@ So, you want more? Did you notice the link **source** when editing the *Paths* o
 
 In this lab we have learn how to install 3scale-toolbox locally in our local machines, this will allow us to manage the 3Scale API Gateway from our local machine and retrieve the credentials file needed to use it in the pipelines.
 
-You can now proceed to [Lab 2](../lab202/#lab-2)
+You can now proceed to [Lab 2](../lab202/#lab-202)
 
 ## Notes and Further Reading
 

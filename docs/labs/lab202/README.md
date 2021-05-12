@@ -142,7 +142,7 @@ So, you want more? Have you tried to familiarize with 3scale-toolbox, try differ
 
 In this lab you have learned how to generate access tokens and how to get the `.3scalerc.yaml`.
 
-You can now proceed to [Lab 3](../lab203/#lab-3)
+You can now proceed to [Lab 3](../lab203/#lab-203)
 
 ## Notes and Further Reading
 

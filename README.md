@@ -57,9 +57,11 @@ Session 2: API Security and Usage
 
 Session 3: Jenkins CICD
 
-* [07. 3scale-toolbox Install](docs/labs/lab201/#lab-1) - Install the 3scale toolbox locally
-* [08. 3scale-toolbox Connect](docs/labs/lab202/#lab-2) - Connect 3scale toolbox locally
-* [09. 3scale-toolbox OpenShift Setup](docs/labs/lab203/#lab-3) - Setup 3scale-toolbox in OpenShift
+* [07. 3scale-toolbox Install](docs/labs/lab201/#lab-201) - Install the 3scale toolbox locally
+* [08. 3scale-toolbox Connect](docs/labs/lab202/#lab-202) - Connect 3scale toolbox locally
+* [09. 3scale-toolbox OpenShift Setup](docs/labs/lab203/#lab-203) - Setup 3scale-toolbox in OpenShift
+* [10. Deploy NodeJS TODO App](docs/labs/lab204/#lab-204) - Deploy NodeJS TODO App
+* [11. 3scale-toolbox Pipeline Setup](docs/labs/lab205/#lab-205) - Create Jenkins pipeline build and deploy the new API.
 
 ### Optional Labs
 
