@@ -10,7 +10,7 @@ You will need an OpenShift Container Platform to install this workshop on. You c
 
 To install the 3scale API Workshop, you need to have a host machine with the latest stable release version of the OpenShift client tools.
 
-You can download the OpenShift Client Tools from [Red Hat Developers Portal Site](https://developers.redhat.com/products/openshift/download/) or follow the instructions on how to [Install the CLI](https://docs.openshift.com/container-platform/3.9/cli_reference/get_started_cli.html#installing-the-cli) from the openshift.com webpage.
+You can download the OpenShift Client Tools from [Red Hat Developers Portal Site](https://developers.redhat.com/products/openshift/download/) or follow the instructions on how to [Install the CLI](https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html#installing-the-cli) from the openshift.com webpage.
 
 You'll want to know how to [fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) a Git repository, and how to [check out a branch](https://git-scm.com/docs/git-checkout#git-checkout-emgitcheckoutemltbranchgt).
 
@@ -34,7 +34,10 @@ sso_version | The version tag used for getting the RH SSO templates. | ose-v1.4.
 ocp_domain | Root domain of the OpenShift cluster. For example: `GUID.open.redhat.com` | | Yes
 ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.GUID.open.redhat.com`  | | Yes
 usersno | Number of user tenants that will be created. | | Yes
+registry_io_username | Username to be used for registry.io | | Yes
+registry_io_password | Password to be used for registry.io | | Yes
 threescale | Enable Red Hat 3scale API Management. | true | No
+jenkins | Enable Jenkins | true | No
 apicurio | Enable Apicurio Studio. | true | No
 gogs | Enable Gogs Git Service. |  true | No
 microcks | Enable Microcks. | true | No
@@ -59,6 +62,7 @@ registry_io_password=password!
 usersno=20
 threescale=true
 apicurio=true
+jenkins=true
 gogs=true
 microcks=true
 sso=true
@@ -84,7 +88,7 @@ The recommended way to install the workshop is running the ansible playbook from
 1. Git Clone the 3scale API Workshop repository:
 
     ```bash
-    git clone https://github.com/jbossdemocentral/3scale-api-workshop.git
+    git clone https://github.com/misanche/3scale-api-workshop.git
     ```
 
 1. Become super user running the following command:

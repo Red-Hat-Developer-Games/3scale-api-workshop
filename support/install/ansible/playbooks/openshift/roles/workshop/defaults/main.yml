@@ -12,6 +12,7 @@ ocp_apps_domain: apps.3901.open.redhat.com
 usersno: 20
 threescale: true
 apicurio: true
+jenkins: true
 gogs: true
 microcks: true
 sso: true

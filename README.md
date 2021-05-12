@@ -79,6 +79,11 @@ Having any trouble while doing the labs? Check this [troubleshooting guide](docs
 
 ### Support & Ownership
 
+#### Workshop with 3scale 3.9 and CICD
+GitHub Repo: [https://github.com/misanche/3scale-api-workshop](https://github.com/misanche/3scale-api-workshop)
+
+Feel free to ask [Mikel Sanchez](mailto:misanche@redhat.com) if you need some support when there are any questions left or if you need some support.
+#### Original Workshop with 3scale 3.2
 GitHub Repo: [https://github.com/jbossdemocentral/3scale-api-workshop](https://github.com/jbossdemocentral/3scale-api-workshop)
 
 Feel free to ask [Hugo Guerrero](mailto:hguerrero@redhat.com) if you need some support when there are any questions left or if you need some support.
