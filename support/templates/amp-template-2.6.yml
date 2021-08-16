@@ -1540,7 +1540,7 @@ objects:
     name: system-storage
   spec:
     accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
     dataSource: null
     resources:
       requests:

@@ -8,13 +8,14 @@
   when: configure_only == 'false'
   ignore_errors: true
 
+- name: Give users access to jenkins project
+  with_sequence: start=1 end={{ usersno }} format=user%d
+  when: user_projects
+  shell: oc policy add-role-to-user view {{ item }} -n {{ jenkins_project }}
+
 - name: Create image streams for RH SSO
   shell: "oc create -f https://raw.githubusercontent.com/misanche/3scale-api-workshop/master/support/templates/jenkins-image-streams.json -n openshift"
   when: configure_only == 'false' and imagestream_exists.failed
-
-# - name: Create or update the Jenkins template
-#   shell: "oc apply -f https://raw.githubusercontent.com/misanche/3scale-api-workshop/master/support/templates/jenkins-template.json -n openshift"
-#   when: configure_only == 'false'
 
 - name: Create custom jenkins image
   shell: "oc new-build jenkins:2~https://github.com/rhappdev/custom-jenkins-image.git --name=custom-jenkins -e GIT_SSL_NO_VERIFY=true -e OVERRIDE_PV_CONFIG_WITH_IMAGE_CONFIG=true -e OVERRIDE_PV_PLUGINS_WITH_IMAGE_PLUGINS=true -n {{ jenkins_project }}"
@@ -39,7 +40,7 @@
   git:
     repo: 'https://github.com/rhappdev/custom-jenkins-image.git'
     dest: /tmp/3scale-workshop/custom-jenkins-image
-    version: master
+    version: ocp4
   when: configure_only == 'false'
 - name: Create the sync plugin config
   template:
