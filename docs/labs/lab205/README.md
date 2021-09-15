@@ -66,31 +66,38 @@ One of the prerequisites of this course is having an OC Cli already installed. i
     ```
 
 3. The first time it will fail, this is because we haven't set the variables needed for the pipeline to run.
+
+4. If you want to see how it fails, please go to **Builds** section.
    
-4. If you want to see how it fails, please go to **Builds** and **Pipelines** section.
    ![pipeline](images/pipeline.png "Pipelines")
 
-   ![pipeline-error](images/pipeline-error.png "Pipeline Error")
+5. Choose the **todo-app-pipeline** build config, and then clic **Builds** tab
 
-5. To set the variables type the following command:
+   ![pipeline](images/pipeline-1.png "Pipelines 1")
+
+   ![pipeline](images/pipeline-2.png "Pipelines 2")
+
+6. Select the failed build **todo-app-pipeline-1** and see the error.
+
+    ![pipeline](images/pipeline-error.png "Pipelines error")
+
+7. To set the variables type the following command:
 
    ```bash
     oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.GUID.opentlc.com/userX/todo-app.git" \
     GIT_BRANCH="main" PARAMS_OPENAPI_SPEC="src/openapi/openapi.yaml" \
     APP_NAME="todo_api" \
     PRIVATE_URL="http://todo-app-userX.apps.GUID.opentlc.com" \
-    STAGING_URL="https://todo-userX.pre.apps.GUID.opentlc.com:443" \
-    PRODUCTION_URL="https://todo-userX.pro.apps.GUID.opentlc.com:443" \
     INSTANCE="3scale-onprem" OCP_PROJECT="userX" \
-    SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n user1
+    SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n userX
     ```
 
-6. Start the new build manually by running the follwing command:
+8. Start the new build manually by running the follwing command:
     ```bash
         oc start-build todo-app-pipeline -n userX
     ```
 
-7. Once the pipeline has finished succesfully, you will see the pipeline as this:
+9.  Once the pipeline has finished succesfully, you will see the pipeline as this:
 ![pipeline-successful](images/pipeline-successful.png "Pipeline Successful")
 
 8. You can access again 3scale admin portal to check if the new API has been created.
