@@ -20,7 +20,7 @@ Red Hat OpenShift is one of the leading container management platforms available
 If you are planning to follow to the next lab, there is an already deployed and running Location API Service in this endpoint:
 
 ```bash
-http://location-service-international.apps.GUID.open.redhat.com
+http://location-service-international.apps.GUID.opentlc.com
 ```
 
 ### Environment
@@ -29,16 +29,16 @@ http://location-service-international.apps.GUID.open.redhat.com
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**:
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -62,7 +62,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://master.GUID.open.redhat.com/console
+    https://console-openshift-console.apps.GUID.opentlc.com/console
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -75,40 +75,37 @@ openshift
 
     ![01-login](images/deploy-01.png "OpenShift Login")
 
-1. You are now in OpenShift's main page. Click on your **userX** project in the right side of the screen.
+1. You are now in OpenShift's main page. Click on your **userX** project located in the center of the screen.
 
     ![02-user-project](images/deploy-02.png "User Project")
 
-1. From your main project page, click **Browse Catalog**.
+1. From your main project page, click **+Add**.
 
     ![03-browse-catalog](images/deploy-03.png "Catalog")
 
-1. Scroll down the page and search for the **Red Hat Fuse 7.0 Camel with Spring Boot** template. Click on the link.
+2. Then click **From Catalog** button.
+
+    ![03-browse-catalog](images/deploy-03-a.png "Catalog")
+
+3. Scroll down the page and search for the **Red Hat Fuse 7.X Camel with Spring Boot** template. Click on the link.
 
     ![04-Fuse70-template](images/deploy-04.png "Template")
 
-1. Click the **Next >** button.
+3. Click **Initialise Template**.
 
-    ![05-template-information](images/deploy-05.png "Information")
+    ![04-Fuse70-template](images/deploy-04-a.png "Initialise Template")
 
-1. Fill in the configuration information with your API implementation github repo details:
+4. Fill in the configuration information with your API implementation github repo details:
 
     * Application Name: **location-service**
-    * Git Repository URL: **https://github.com/misanche/3scale-api-workshop**
-    * Git Repository context: **/projects/location-service**
+    * Git Repository URL: **https://github.com/misanche/3scale-workshop-location-service**
     * Git Reference: **master**
 
-    ![06-template-configuration](images/deploy-06.png "Configuration")
+    ![06-template-configuration](images/deploy-05.png "Configuration")
 
-1. Click **Next >**.
-  
-1. In this moment we will not create any bindings. So click **Create**.
+5. Click **Create**.
 
-    ![07-template-binding](images/deploy-07.png "Binding")
-
-1. Your service will be provisioned in a moment. Click the **Continue to the project overview** and then click the **Close** button.
-
-    ![08-template-results](images/deploy-08.png "Results")
+    ![06-template-configuration](images/deploy-06.png "Create")
 
 ### Step 2: Configure External Resources
 
@@ -137,7 +134,7 @@ In this lab we will use Environment Variables.
 
 1. Click **Save** to update the configuration and redeploy the service.
 
-1. Go back to the **Overview** page to monitor your updated deployment.
+1. Go back to the **Topology** page to monitor your updated deployment.
 
 1. You should now see the blue circle in the *location-service* pod. 
 
@@ -156,7 +153,7 @@ We now have a working Location API Service implementation listening for requests
 1. Enter the following URL: 
 
     ```bash
-    http://location-service-userX.apps.GUID.open.redhat.com/locations/1
+    http://location-service-userX.apps.GUID.opentlc.com/locations/1
     ```
 
     Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
@@ -173,7 +170,7 @@ We now have a working Location API Service implementation listening for requests
 
 1. You can use your own terminal to make a curl request:
    ```bash
-    curl http://location-service-userX.apps.GUID.open.redhat.com/locations/1
+    curl http://location-service-userX.apps.GUID.opentlc.com/locations/1
     ```
 
 ## Steps Beyond

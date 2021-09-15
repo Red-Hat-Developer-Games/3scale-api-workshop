@@ -23,16 +23,16 @@ If you are planning to skip this lab and follow the next one, we have already ad
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**:
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -56,7 +56,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    http://apicurio-studio.apps.GUID.open.redhat.com/
+    http://apicurio-studio.apps.GUID.opentlc.com/
     ```
 
 2. Accept the self-signed certificate if you haven't: 

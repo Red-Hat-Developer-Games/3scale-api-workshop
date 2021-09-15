@@ -20,7 +20,7 @@ Applications can be built from many technologies. In this case we use a simple w
 If you decide to skip the lab you can check how a SSO enabled web applications looks like:
 
 ```bash
-http://www-international.apps.GUID.open.redhat.com
+http://www-international.apps.GUID.opentlc.com
 ```
 
 ### Environment
@@ -29,16 +29,16 @@ http://www-international.apps.GUID.open.redhat.com
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**:
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -66,7 +66,7 @@ Follow this instructions to set up the repository.
 1. Open a browser window and navigate to:
 
     ```bash
-    http://gogs.apps.GUID.open.redhat.com/user/login?redirect_to=
+    http://gogs.apps.GUID.opentlc.com/user/login?redirect_to=
     ```
 
 1. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
@@ -96,7 +96,7 @@ International Inc web development create a Node.js application for the company h
 1. Open a browser window and navigate to:
 
     ```bash
-    https://master.GUID.open.redhat.com/console
+    https://console-openshift-console.apps.GUID.opentlc.com/console
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -128,7 +128,7 @@ International Inc web development create a Node.js application for the company h
 1. Fill in the configuration information with your API implementation github repo details:
 
     * Application Name: **www**
-    * Git Repository URL: **http://gogs.apps.GUID.open.redhat.com/userX/www-page.git**
+    * Git Repository URL: **http://gogs.apps.GUID.opentlc.com/userX/www-page.git**
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
@@ -153,7 +153,7 @@ International Inc web development create a Node.js application for the company h
 1. In the build configuration page, change to the **Environment** tab. Fill in the available row with the following information:
 
     * Name: **API\_BACKEND\_URL**
-    * Value: **http://location-service-userX.apps.GUID.open.redhat.com/locations**
+    * Value: **http://location-service-userX.apps.GUID.opentlc.com/locations**
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
@@ -310,7 +310,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
 1. Because we are using self signed certificates, you will need to accept the certificate for the secured endpoint. Open a new browser tab or window and navigate to:
 
     ```bash
-    https://location-userX-api-staging.amp.apps.GUID.open.redhat.com/locations
+    https://location-userX-api-staging.amp.apps.GUID.opentlc.com/locations
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
@@ -332,7 +332,7 @@ Redirect URLs are a critical part of the OAuth flow. After a user successfully a
 1. Open a browser window and navigate to:
 
     ```bash
-    http://sso-rh-sso.apps.GUID.open.redhat.com/auth/admin/userX/console/
+    http://sso-rh-sso.apps.GUID.opentlc.com/auth/admin/userX/console/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -358,7 +358,7 @@ Redirect URLs are a critical part of the OAuth flow. After a user successfully a
     * Access Type: **Public**
     * Standard Flow Enabled: **ON**
     * Implicit Flow Enabled: **OFF**
-    * Valid Redirect URIs: **[http://www-userX.apps.GUID.open.redhat.com/*](http://www-userX.apps.GUID.open.redhat.com/*)**
+    * Valid Redirect URIs: **[http://www-userX.apps.GUID.opentlc.com/*](http://www-userX.apps.GUID.opentlc.com/*)**
     * Web Origins: **\***
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -384,9 +384,9 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
     _Click **Add Value** to add additional rows_.
 
     * Name: **API\_BACKEND\_URL**
-    * Value: **https://location-userX-api.amp.apps.GUID.open.redhat.com/locations**
+    * Value: **https://location-userX-api.amp.apps.GUID.opentlc.com/locations**
     * Name: **SSO\_URL**
-    * Value: **http://sso-rh-sso.apps.GUID.open.redhat.com**
+    * Value: **http://sso-rh-sso.apps.GUID.opentlc.com**
     * Name: **SSO\_REALM**
     * Value: **userX**
     * Name: **CLIENT\_ID**

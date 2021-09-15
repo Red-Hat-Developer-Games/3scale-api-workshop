@@ -17,16 +17,16 @@ This section covers how to create an openshift pipeline build to trigger a jenki
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**:
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -54,7 +54,7 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 1. Open a browser window and navigate to:
 
     ```bash
-    oc login https://master.GUID.open.redhat.com -p $PASSWORD -u $USER
+    oc login https://api.GUID.opentlc.com:6443 -p $PASSWORD -u $USER
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -62,7 +62,7 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 2. Once you have been loged in, you need to create a new build Jenkins pipeline Build.
 
     ```bash
-    oc new-build http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git#main --name=todo-app-pipeline -n user1
+    oc new-build http://gogs.apps.GUID.opentlc.com/userX/todo-app.git#main --name=todo-app-pipeline -n user1
     ```
 
 3. The first time it will fail, this is because we haven't set the variables needed for the pipeline to run.
@@ -75,12 +75,12 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 5. To set the variables type the following command:
 
    ```bash
-    oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git" \
+    oc set env bc/todo-app-pipeline GIT_REPO="http://gogs.apps.GUID.opentlc.com/userX/todo-app.git" \
     GIT_BRANCH="main" PARAMS_OPENAPI_SPEC="src/openapi/openapi.yaml" \
     APP_NAME="todo_api" \
-    PRIVATE_URL="http://todo-app-userX.apps.GUID.open.redhat.com" \
-    STAGING_URL="https://todo-userX.pre.apps.GUID.open.redhat.com:443" \
-    PRODUCTION_URL="https://todo-userX.pro.apps.GUID.open.redhat.com:443" \
+    PRIVATE_URL="http://todo-app-userX.apps.GUID.opentlc.com" \
+    STAGING_URL="https://todo-userX.pre.apps.GUID.opentlc.com:443" \
+    PRODUCTION_URL="https://todo-userX.pro.apps.GUID.opentlc.com:443" \
     INSTANCE="3scale-onprem" OCP_PROJECT="userX" \
     SECRET_NAME="3scale-toolbox" TEST_ENDPOINT="/items" -n user1
     ```
@@ -96,7 +96,7 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 8. You can access again 3scale admin portal to check if the new API has been created.
 
     ```bash
-        https://userX-admin.apps.GUID.open.redhat.com
+        https://userX-admin.apps.GUID.opentlc.com
     ```
 
     ![new-api](images/new-api.png "New API")

@@ -20,7 +20,7 @@ Red Hat provides one the leading API Management tools which provide management s
 If you are planning to follow to the next lab, there is an already running API proxy for the Location API Service in this endpoint:
 
 ```bash
-https://location-service-api.amp.apps.GUID.open.redhat.com
+https://location-service-api.amp.apps.GUID.opentlc.com
 ```
 
 ### Environment
@@ -29,16 +29,16 @@ https://location-service-api.amp.apps.GUID.open.redhat.com
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**:
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -64,7 +64,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.open.redhat.com/
+    https://userX-admin.apps.GUID.opentlc.com/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -215,9 +215,9 @@ The order in which the policies are executed, known as the “policy chain”, c
 
 3. Fill in the information for accessing your API:
 
-    * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443**
+    * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.opentlc.com:443**
 
-    * Production Public Base URL: **https://location-userX-api.amp.apps.GUID.open.redhat.com:443**
+    * Production Public Base URL: **https://location-userX-api.amp.apps.GUID.opentlc.com:443**
 
     *Remember to replace the GUID with your [environment](#environment) value*.
 
@@ -239,7 +239,7 @@ The order in which the policies are executed, known as the “policy chain”, c
 
     Example:
     ```bash
-        curl "https://location-userX-api-staging.amp.apps.GUID.open.redhat.com:443/locations?user_key=APIKEY" -k
+        curl "https://location-userX-api-staging.amp.apps.GUID.opentlc.com:443/locations?user_key=APIKEY" -k
     ```
 
 7. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.

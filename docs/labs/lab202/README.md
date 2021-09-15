@@ -17,16 +17,16 @@ This section covers how to connect to the 3Scale on premise running instance
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**: 
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -50,7 +50,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.open.redhat.com/
+    https://userX-admin.apps.GUID.opentlc.com/
     ```
 
 2. Accept the self-signed certificate if you haven't: 
@@ -104,7 +104,7 @@ Let's start adding our 3Scale on-prem instance.
 1. Go to you terminal and type the following command:
 
     ```bash
-    3scale remote add 3scale-onprem "https://TOKEN@USERX-admin.apps.GUID.open.redhat.com/" -k
+    3scale remote add 3scale-onprem "https://TOKEN@USERX-admin.apps.GUID.opentlc.com/" -k
     ```
 
     * -k option: Allows to make the request with self signed certificates

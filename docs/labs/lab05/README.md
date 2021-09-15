@@ -23,16 +23,16 @@ You can customize the look and feel of the entire Developer Portal to match your
 
 Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**: 
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -56,7 +56,7 @@ openshift
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.open.redhat.com/
+    https://userX-admin.apps.GUID.opentlc.com/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -148,7 +148,7 @@ openshift
 1. Open a new *Incognito/Private* browser window to test the Developer Portal login. Navigate to:
 
     ```bash
-    https://userX.apps.GUID.open.redhat.com/
+    https://userX.apps.GUID.opentlc.com/
     ```
 
 1. Type your portal code to finish the login.

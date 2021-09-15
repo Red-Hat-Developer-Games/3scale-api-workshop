@@ -15,18 +15,18 @@ This section covers how to run NodeJS Todo app in Openshift.
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **cluster-lhm8v.lhm8v.sandbox430**:
 
 ```bash
-https://master.GUID.open.redhat.com
+https://console-openshift-console.apps.GUID.opentlc.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.open.redhat.com
+https://console-openshift-console.apps.cluster-lhm8v.lhm8v.sandbox430.opentlc.com
 ```
 
 **Credentials:**
@@ -54,7 +54,7 @@ Follow this instructions to set up the repository.
 1. Open a browser window and navigate to:
 
     ```bash
-    http://gogs.apps.GUID.open.redhat.com/user/login
+    http://gogs.apps.GUID.opentlc.com/user/login
     ```
 
 2. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
@@ -84,7 +84,7 @@ Todo App creates a Node.js backend. This allow us to make calls and retrieve inf
 1. Open a browser window and navigate to:
 
     ```bash
-    https://master.GUID.open.redhat.com/console
+    https://console-openshift-console.apps.GUID.opentlc.com/console
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -97,50 +97,53 @@ Todo App creates a Node.js backend. This allow us to make calls and retrieve inf
 
     ![01-login](images/deploy-01.png "OpenShift Login")
 
-4. You are now in OpenShift's main page. Click on your **userX** project in the right side of the screen.
+4. You are now in OpenShift's main page. Click on your **userX** project.
 
     ![02-user-project](images/deploy-02.png "User Project")
 
-5. From your main project page, click **Browse Catalog**.
+5. Select Developer view and then click **+Add**.
 
     ![03-browse-catalog](images/deploy-03.png "Catalog")
 
-6. Scroll down the page and search for the **Node.js** template. Click on the link.
+6. Click **From Catalog button**.
 
-    ![04-nodejs-template](images/consume-08.png "Template")
+    ![03-browse-catalog](images/deploy-03-a.png "Catalog")
 
-7. Click the **Next >** button.
+7. Type **Nodejs** in the search box and click **Node.js** template. Then click **Create Application** button.
 
-    ![05-template-information](images/consume-09.png "Information")
-8. Click the **advanced options** link, the reason is because we are using the new github branching model, where `master` is no longer de default branch, instead `main` is used.
+    ![04-nodejs-template](images/deploy-04.png "Template")
 
-    ![deploy](images/deploy-04.png "Deploy node")
+8.  Click the **Show advanced git options** link, the reason is because we are using the new github branching model, where `master` is no longer de default branch, instead `main` is used.
+
+    ![deploy](images/deploy-05.png "Deploy node")
 
 9.  Fill the data with:
 
     * Name: **todo-app**
-    * Git Repository URL: **http://gogs.apps.GUID.open.redhat.com/userX/todo-app.git**
+    * Application Name: **todo-app**
+    * Git Repository URL: **http://gogs.apps.cluster-GUID.opentlc.com/userX/todo-app.git**
+    * Git type: **Other**
     * Git Reference: **main**
 
-    ![deploy-info](images/deploy-05.png "Deploy info")
+    ![deploy-info](images/deploy-06.png "Deploy info")
 
 10. Click **Create** blue button located at the bottom of the page.
 
 11. In the Overview section you will be able to see how the new build is running, later todo-app deployment will appear as deployed:
 
-     ![deployed](images/deploy-06.png "Deployed")
+     ![deployed](images/deploy-07.png "Deployed")
 
 12. Now you can type the following in your terminal to retrieve the response from the service
 
     ```bash
-    curl --location --request GET 'http://todo-app-userX.apps.GUID.open.redhat.com/items'
+    curl --location --request GET 'http://todo-app-userX.apps.GUID.opentlc.com/items'
     ```
 
     or you can add new values:
 
     ```bash
     
-    curl --location --request POST 'http://todo-app-userX.apps.GUID.open.redhat.com/items' \
+    curl --location --request POST 'http://todo-app-userX.apps.GUID.opentlc.com/items' \
     --header 'Content-Type: application/json' \
     --data-raw '{
         "id": "2323",
