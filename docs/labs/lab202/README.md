@@ -91,7 +91,7 @@ openshift
 
 9.   Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
 
-    ![3scaletoolbox-token-info](images/token-info.png "Token Info")
+    ![3scaletoolbox-token-info](images/token-info.png "Token info")
 
 10.  Click on **I have copied the token**.
 
