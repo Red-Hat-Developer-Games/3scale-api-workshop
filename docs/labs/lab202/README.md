@@ -87,13 +87,13 @@ openshift
 
     ![3scaletoolbox-create-token](images/create-token.png "Create Token")
 
-8.  Click on **Create Access Token**.
+8. Click on **Create Access Token**.
 
-9.   Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
+9. Finally, Ensure that you have copied the token generated with green color. We are going to use it later.
 
     ![3scaletoolbox-token-info](images/token-info.png "Token info")
 
-10.  Click on **I have copied the token**.
+10. Click on **I have copied the token**.
 
 ### Step 2: Connecting the 3scale toolbox
 
