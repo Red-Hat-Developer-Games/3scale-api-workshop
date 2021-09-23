@@ -62,7 +62,7 @@ One of the prerequisites of this course is having an OC Cli already installed. i
 2. Once you have been loged in, you need to create a new build Jenkins pipeline Build.
 
     ```bash
-    oc new-build http://gogs.apps.GUID.opentlc.com/userX/todo-app.git#main --name=todo-app-pipeline -n user1
+    oc new-build http://gogs.apps.GUID.opentlc.com/userX/todo-app.git#main --name=todo-app-pipeline -n userX
     ```
 
 3. The first time it will fail, this is because we haven't set the variables needed for the pipeline to run.
